@@ -29,9 +29,26 @@ class MainVC: UIViewController {
     @IBOutlet private weak var tableView: UITableView!
     
     //MARK: UIViewController
+    override func loadView() {
+        super.loadView()
+        setupNavigationBar()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.start()
+    }
+    
+    // MARK: Functions
+    private func setupNavigationBar() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add,
+                                                            target: self,
+                                                            action: #selector(addButtonTapped))
+        self.title = "To Do List"
+    }
+    
+    @objc private func addButtonTapped() {
+        viewModel.add()
     }
 }
 
@@ -53,7 +70,8 @@ extension MainVC: UITableViewDelegate, UITableViewDataSource {
 
 //MARK: TableView Swipe Buttons
 extension MainVC {
-    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+    func tableView(_ tableView: UITableView,
+                   trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete") {
             [weak self]
             (_,_,_) in
@@ -69,7 +87,6 @@ extension MainVC {
         let swipeActions = UISwipeActionsConfiguration(actions: [deleteAction, editAction])
         
         return swipeActions
-        // TODO: take care of retain cycle in closures above
     }
 }
 
