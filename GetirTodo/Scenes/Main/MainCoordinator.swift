@@ -36,14 +36,18 @@ class MainCoordinator: Coordinator {
 // MARK: - ViewModel Callbacks
 extension MainCoordinator : MainViewModelCoordinatorDelegate {
     func didSelect(todo: Todo, from controller: UIViewController) {
-        print("\n I'm in MainCoordinator and user selected \(todo) \n")
-        self.goToDetails(with: todo, from: controller)
+        self.goToDetailsPage(with: todo, from: controller)
     }
 }
 
 // MARK: - Navigation
 extension MainCoordinator {
-    private func goToDetails(with todo: Todo, from controller: UIViewController) {
+    private func goToDetailsPage(with todo: Todo, from controller: UIViewController) {
         print("\n I'm going to transfer you to ToDoDetails VC with \(todo)\n")
+        let todoViewData = TodoViewData(todo: todo)
+        let detailVC = DetailsVC.`init`(todoViewData: todoViewData)
+        rootNavigationController.present(detailVC,
+                                         animated: true,
+                                         completion: nil)
     }
 }

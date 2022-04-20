@@ -68,8 +68,9 @@ extension MainVC: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-//MARK: TableView Swipe Buttons
+//MARK: TableView Events
 extension MainVC {
+    // Swipe Buttons
     func tableView(_ tableView: UITableView,
                    trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete") {
@@ -87,6 +88,11 @@ extension MainVC {
         let swipeActions = UISwipeActionsConfiguration(actions: [deleteAction, editAction])
         
         return swipeActions
+    }
+    
+    // Select
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        viewModel.didSelectRow(indexPath.row, from: self)
     }
 }
 

@@ -53,13 +53,16 @@ extension MainVM: MainViewModelType {
     }
     
     func didSelectRow(_ row: Int, from controller: UIViewController) {
-        print("row \(row) selected")
+        // GoTo Details Page
+        let todo = todos[row]
+        didSelect(todo: todo, from: controller)
     }
 }
 
 // MARK: - ViewModelCoordinator
 extension MainVM: MainViewModelCoordinatorDelegate {
     func didSelect(todo: Todo, from controller: UIViewController) {
-        print("I'm in coordinator ")
+        coordinatorDelegate?.didSelect(todo: todo,
+                                       from: controller)
     }
 }

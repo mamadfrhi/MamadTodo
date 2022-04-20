@@ -14,6 +14,8 @@
 		87321F8628107A8200E8DC68 /* MainVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87321F8528107A8200E8DC68 /* MainVM.swift */; };
 		87321F8B28107C4500E8DC68 /* VMAbstraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87321F8A28107C4500E8DC68 /* VMAbstraction.swift */; };
 		87321F902810833700E8DC68 /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87321F8F2810833700E8DC68 /* Todo.swift */; };
+		87321FD928109BEC00E8DC68 /* DetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87321FD828109BEC00E8DC68 /* DetailsVC.swift */; };
+		87321FE528109C1D00E8DC68 /* Details.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87321FE428109C1D00E8DC68 /* Details.storyboard */; };
 		F72669392590B8DE00AB3034 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72669382590B8DE00AB3034 /* AppDelegate.swift */; };
 		F72669402590B8DE00AB3034 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F726693E2590B8DE00AB3034 /* Main.storyboard */; };
 		F72669422590B8DF00AB3034 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F72669412590B8DF00AB3034 /* Assets.xcassets */; };
@@ -47,6 +49,8 @@
 		87321F8528107A8200E8DC68 /* MainVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVM.swift; sourceTree = "<group>"; };
 		87321F8A28107C4500E8DC68 /* VMAbstraction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VMAbstraction.swift; sourceTree = "<group>"; };
 		87321F8F2810833700E8DC68 /* Todo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
+		87321FD828109BEC00E8DC68 /* DetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsVC.swift; sourceTree = "<group>"; };
+		87321FE428109C1D00E8DC68 /* Details.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Details.storyboard; sourceTree = "<group>"; };
 		F72669352590B8DD00AB3034 /* GetirTodo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GetirTodo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F72669382590B8DE00AB3034 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F726693F2590B8DE00AB3034 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -102,6 +106,7 @@
 				87321F6E2810794100E8DC68 /* Coordinator.swift */,
 				87321F6D2810794100E8DC68 /* AppCoordinator.swift */,
 				87321F742810796100E8DC68 /* Main */,
+				87321FE028109BF500E8DC68 /* Details */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -138,8 +143,8 @@
 		87321F992810867600E8DC68 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				87321F8528107A8200E8DC68 /* MainVM.swift */,
 				87321F8A28107C4500E8DC68 /* VMAbstraction.swift */,
+				87321F8528107A8200E8DC68 /* MainVM.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -157,6 +162,15 @@
 			children = (
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		87321FE028109BF500E8DC68 /* Details */ = {
+			isa = PBXGroup;
+			children = (
+				87321FD828109BEC00E8DC68 /* DetailsVC.swift */,
+				87321FE428109C1D00E8DC68 /* Details.storyboard */,
+			);
+			path = Details;
 			sourceTree = "<group>";
 		};
 		F726692C2590B8DD00AB3034 = {
@@ -313,6 +327,7 @@
 				F72669452590B8DF00AB3034 /* LaunchScreen.storyboard in Resources */,
 				F72669422590B8DF00AB3034 /* Assets.xcassets in Resources */,
 				F72669402590B8DE00AB3034 /* Main.storyboard in Resources */,
+				87321FE528109C1D00E8DC68 /* Details.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,6 +357,7 @@
 				87321F8B28107C4500E8DC68 /* VMAbstraction.swift in Sources */,
 				87321F902810833700E8DC68 /* Todo.swift in Sources */,
 				87321F8128107A7A00E8DC68 /* MainVC.swift in Sources */,
+				87321FD928109BEC00E8DC68 /* DetailsVC.swift in Sources */,
 				87321F7928107A0600E8DC68 /* MainCoordinator.swift in Sources */,
 				87321F6F2810794100E8DC68 /* AppCoordinator.swift in Sources */,
 				F72669392590B8DE00AB3034 /* AppDelegate.swift in Sources */,
