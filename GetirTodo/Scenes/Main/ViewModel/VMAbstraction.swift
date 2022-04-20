@@ -23,7 +23,9 @@ protocol MainViewModelType {
     
     func add()
     
-    func delete()
+    func delete(at: IndexPath)
+    
+    func edit(at: IndexPath)
     
     func didSelectRow(_ row: Int, from controller: UIViewController)
     

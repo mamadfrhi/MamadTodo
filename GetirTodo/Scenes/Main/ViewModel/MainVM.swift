@@ -40,16 +40,20 @@ extension MainVM: MainViewModelType {
         print("Add new todo tapped")
     }
     
-    func delete() {
+    func delete(at: IndexPath) {
         print("delete todo tapped")
     }
     
-    func didSelectRow(_ row: Int, from controller: UIViewController) {
-        print("row \(row) selected")
+    func edit(at: IndexPath) {
+        print("edit todo tapped")
     }
     
     func refreshView() {
         print("refresh view happened")
+    }
+    
+    func didSelectRow(_ row: Int, from controller: UIViewController) {
+        print("row \(row) selected")
     }
 }
 

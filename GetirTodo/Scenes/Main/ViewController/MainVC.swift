@@ -51,6 +51,28 @@ extension MainVC: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
+//MARK: TableView Swipe Buttons
+extension MainVC {
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") {
+            [weak self]
+            (_,_,_) in
+            self?.viewModel.delete(at: indexPath)
+        }
+        
+        let editAction = UIContextualAction(style: .normal, title: "Edit") {
+            [weak self]
+            (_,_,_)  in
+            self?.viewModel.edit(at: indexPath)
+        }
+        editAction.backgroundColor = .blue
+        let swipeActions = UISwipeActionsConfiguration(actions: [deleteAction, editAction])
+        
+        return swipeActions
+        // TODO: take care of retain cycle in closures above
+    }
+}
+
 // MARK: - ViewModel Delegate
 extension MainVC: MainViewModelViewDelegate {
     func refreshScreen() {
