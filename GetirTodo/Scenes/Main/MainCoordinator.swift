@@ -16,6 +16,11 @@ class MainCoordinator: Coordinator {
     // storage and api for services to inject in VM
     
     // MARK: VM
+    private var mainVM: MainVM {
+        let mainVM = MainVM()
+        mainVM.coordinatorDelegate = self
+        return mainVM
+    }
     
     // MARK: Coordinator
     init(rootNavigationViewController: UINavigationController) {
@@ -23,7 +28,7 @@ class MainCoordinator: Coordinator {
     }
     
     override func start() {
-        let mainVC = MainVC.init()
+        let mainVC = MainVC.`init`(mainVM: mainVM)
         rootNavigationController.setViewControllers([mainVC], animated: false)
     }
 }

@@ -11,7 +11,7 @@ import UIKit
 // implement in VM
 protocol MainViewModelType {
     
-    var viewDelegate: MainViewModelCoordinatorDelegate? { get set }
+    var viewDelegate: MainViewModelViewDelegate? { get set }
     
     // Data Source
     func numberOfRows() -> Int
@@ -19,6 +19,8 @@ protocol MainViewModelType {
     func cellDataFor(row: Int) -> TodoViewData
     
     // Events
+    func start()
+    
     func add()
     
     func delete()
