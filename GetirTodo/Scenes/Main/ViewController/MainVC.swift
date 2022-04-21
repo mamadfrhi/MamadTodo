@@ -110,6 +110,10 @@ extension MainVC: MainViewModelViewDelegate {
     
     func showError(errorMessage: String) {
         // Remember to show it on main thread
-        print("Show Error")
+        DispatchQueue.main.async {
+            AlertPresenter.shared.showMessage(title: "Error",
+                                              message: errorMessage,
+                                              on: self)
+        }
     }
 }
