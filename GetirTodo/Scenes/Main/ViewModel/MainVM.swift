@@ -93,10 +93,6 @@ extension MainVM: MainViewModelType {
         print("edit todo tapped")
     }
     
-    func refreshView() {
-        print("refresh view happened")
-    }
-    
     func didSelectRow(_ row: Int, from controller: UIViewController) {
         // GoTo Details Page
         let todo = todos[row]

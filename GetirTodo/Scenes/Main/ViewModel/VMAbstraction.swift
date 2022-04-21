@@ -28,8 +28,6 @@ protocol MainViewModelType {
     func editButtonTapped(at: IndexPath)
     
     func didSelectRow(_ row: Int, from controller: UIViewController)
-    
-    func refreshView()
 }
 
 // MARK: - ViewModelCoordinator(delegate)
