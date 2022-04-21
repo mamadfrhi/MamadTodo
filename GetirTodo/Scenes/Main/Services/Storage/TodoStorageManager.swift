@@ -50,8 +50,8 @@ extension TodoStorageManager: Storage {
         
         let todoEntity = TodoEntity(context: mainContext)
         
-        todoEntity.id = UUID().uuidString
-        todoEntity.createdAt = Date()
+        todoEntity.id = todo.id ?? UUID().uuidString
+        todoEntity.createdAt = todo.createdAt ?? Date()
         
         todoEntity.title = todo.title
         todoEntity.description_todo = todo.description
