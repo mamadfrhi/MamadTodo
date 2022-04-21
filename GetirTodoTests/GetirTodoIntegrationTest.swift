@@ -6,27 +6,26 @@
 //
 
 import XCTest
+@testable import GetirTodo
+
 
 class GetirTodoIntegrationTest: XCTestCase {
+    
+    func testTodoViewData() {
+        // given
+        let timeStampSince1970 = TimeInterval("1650560539.186071")! // input
+        // it shows date "2022-04-21 17:02:19 +0000"
+        let dateString = "2022-04-21"                           // output
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        let todo = Todo(id: nil,
+                        title: "good todo",
+                        description: "description",
+                        createdAt: Date(timeIntervalSince1970: timeStampSince1970))
+        // when
+        let todoView = TodoViewData(todo: todo)
+
+
+        // then
+        XCTAssertEqual(todoView.createdAt, dateString)
     }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-
 }
