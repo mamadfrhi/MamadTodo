@@ -23,7 +23,7 @@ class AddVC: UIViewController {
     
     //MARK: Properties
     private let descriptionPlaceHolderText = "Write description of your todo here! :D"
-    private var mainVM: MainVM! // TODO: check retain cycle
+    private var mainVM: MainVM!
     
     //MARK: Actions
     @IBAction func save(_ sender: Any) {
@@ -72,4 +72,3 @@ extension AddVC: UITextViewDelegate {
 // TODO: This class is tighly coupled and not testable
 // make a coordinator for this class as well or call save functionality of VM
 // from MainCoordinator
-// TODO: prevent

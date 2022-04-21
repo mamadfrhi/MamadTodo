@@ -18,7 +18,7 @@ class MainVM {
         didSet {
             self.todos = todosContainer!.todos
         }
-    } // TODO: Write a test to check count of these two arrays above
+    }
     private var services: ServicesType
     
     // MARK: Functions
@@ -31,7 +31,6 @@ class MainVM {
 }
 
 // MARK: - CoreData
-// todos CRUD
 extension MainVM {
     private func fetch() {
         services.fetch {
