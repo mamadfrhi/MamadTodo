@@ -43,18 +43,27 @@ class AddVC: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
+    //MARK: Functions
     private func makeTodo() -> Todo? {
-        // TODO: show proper message to user if texts didn't changed
         guard let title = titleTextField.text?.capitalized, title != "", // check title text
-              let description = descriptionTextView.text,
-              description != descriptionPlaceHolderText // check description text
-        else { return nil }
+              let description = descriptionTextView.text, // check description text
+              description != descriptionPlaceHolderText,
+              description != ""
+        else {
+            showTodoMakingWarning()
+            return nil
+        }
         
         let todo = Todo(id: nil,
                         title: title,
                         description: description,
                         createdAt: nil)
         return todo
+    }
+    private func showTodoMakingWarning() {
+        AlertPresenter.shared.showMessage(title: "Warning",
+                                          message: "You should write a title and a description 😁",
+                                          on: self)
     }
 }
 
