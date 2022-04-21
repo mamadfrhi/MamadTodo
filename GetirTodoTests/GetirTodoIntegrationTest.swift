@@ -17,8 +17,9 @@ class GetirTodoIntegrationTest: XCTestCase {
         // it shows date "2022-04-21 17:02:19 +0000"
         let dateString = "2022-04-21"                           // output
         
+        let todoTitle = "good todo"
         let todo = Todo(id: nil,
-                        title: "good todo",
+                        title: todoTitle,
                         description: "description",
                         createdAt: Date(timeIntervalSince1970: timeStampSince1970))
         // when
@@ -27,6 +28,7 @@ class GetirTodoIntegrationTest: XCTestCase {
         
         // then
         XCTAssertEqual(todoView.createdAt, dateString)
+        XCTAssertEqual(todoView.title, todoTitle.capitalized)
     }
     
     // It uses real CoreData stack which used in app

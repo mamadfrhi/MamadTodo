@@ -24,7 +24,7 @@ protocol TodoViewDataType {
 struct TodoViewData: TodoViewDataType {
     var id: String { return todo.id! } // take care of force unwrap
     
-    var title: String { return todo.title }
+    var title: String { return todo.title.capitalized }
     
     var description: String { return todo.description }
     
