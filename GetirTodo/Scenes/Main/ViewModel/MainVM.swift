@@ -13,16 +13,52 @@ class MainVM {
     var viewDelegate: MainViewModelViewDelegate?
     
     // MARK: Properties
-    private var todos: [Todo] = [Todo(id: "10", title: "nice todo",
-                                      description: "good", createdAt: Date()),
-                                 Todo(id: "10", title: "nice todo",
-                                      description: "good", createdAt: Date())]
+    private var todos: [Todo] = []
+    var todosContainer: TodosManagedObjectsContainer? {
+        didSet {
+            self.todos = todosContainer!.todos
+        }
+    } // TODO: Write a test to check count of these two arrays above
+    private var services: ServicesType
     
     // MARK: Functions
-    init() {}
+    init(services: ServicesType) { self.services = services }
     
     func start() {
-        viewDelegate?.refreshScreen()
+        fetch()
+    }
+}
+
+// MARK: - CoreData
+// todos CRUD
+extension MainVM {
+    private func fetch() {
+        services.fetchTodos {
+            [weak self]
+            (result) in
+            switch result {
+            case .success(let todosManagedObjects):
+                let todosContainer = TodosManagedObjectsContainer(todosNSManagedObjects: todosManagedObjects)
+                self?.todosContainer = todosContainer
+            case .failure(let error):
+                self?.viewDelegate?.showError(errorMessage: error.localizedDescription)
+            }
+        }
+    }
+    
+    private func add(todo: Todo) {
+        services.createOnStorage(todo: todo) {
+            [weak self]
+            (result) in
+            switch result {
+            case .success:
+                // TODO: add a good message view for the users
+                print("successfully saved")
+                self?.start()
+            case .failure(let error):
+                self?.viewDelegate?.showError(errorMessage: error.localizedDescription)
+            }
+        }
     }
 }
 

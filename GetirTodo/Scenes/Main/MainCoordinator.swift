@@ -13,11 +13,17 @@ class MainCoordinator: Coordinator {
     
     private let rootNavigationController: UINavigationController
     
-    // storage and api for services to inject in VM
+    private let storage: Storage = TodoStorageManager()
+    private var services: ServicesType {
+        get {
+            let services = Services(storage: self.storage)
+            return services
+        }
+    }
     
     // MARK: VM
     private var mainVM: MainVM {
-        let mainVM = MainVM()
+        let mainVM = MainVM(services: services)
         mainVM.coordinatorDelegate = self
         return mainVM
     }
