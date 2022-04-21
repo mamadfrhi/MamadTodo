@@ -8,10 +8,10 @@
 import Foundation
 
 struct Todo {
-    let id: String
+    let id: String?
     let title: String
     let description: String
-    let createdAt: Date
+    let createdAt: Date?
 }
 
 protocol TodoViewDataType {
@@ -22,7 +22,7 @@ protocol TodoViewDataType {
 }
 
 struct TodoViewData: TodoViewDataType {
-    var id: String { return todo.id }
+    var id: String { return todo.id! } // take care of force unwrap
     
     var title: String { return todo.title }
     
@@ -31,7 +31,7 @@ struct TodoViewData: TodoViewDataType {
     var createdAt: String {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
-        let stringDate = formatter.string(from: todo.createdAt)
+        let stringDate = formatter.string(from: todo.createdAt ?? Date())
         return stringDate
     }
     
