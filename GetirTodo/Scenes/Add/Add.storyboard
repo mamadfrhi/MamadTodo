@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--AddVC-->
+        <scene sceneID="3s9-IK-EN9">
+            <objects>
+                <viewController storyboardIdentifier="AddVC" id="jnp-l3-X0I" customClass="AddVC" customModule="GetirTodo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="g0L-L6-b8c">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uPd-TI-KWt">
+                                <rect key="frame" x="20" y="94" width="374" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="OoI-4B-ngH"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Write description of your todo here! :D" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="gcY-Oe-h5c">
+                                <rect key="frame" x="20" y="166" width="374" height="172"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="172" id="NhP-Sp-QQC"/>
+                                </constraints>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <connections>
+                                    <outlet property="delegate" destination="jnp-l3-X0I" id="1xN-2o-cST"/>
+                                </connections>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZEd-Lw-vuf">
+                                <rect key="frame" x="20" y="373" width="374" height="30"/>
+                                <state key="normal" title="Save"/>
+                                <connections>
+                                    <action selector="save:" destination="jnp-l3-X0I" eventType="touchUpInside" id="G4L-eQ-XeP"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="UpY-II-hSg"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="gcY-Oe-h5c" firstAttribute="top" secondItem="uPd-TI-KWt" secondAttribute="bottom" constant="22" id="1zg-Ht-QfK"/>
+                            <constraint firstItem="uPd-TI-KWt" firstAttribute="leading" secondItem="ZEd-Lw-vuf" secondAttribute="leading" id="7ze-7v-zuc"/>
+                            <constraint firstItem="gcY-Oe-h5c" firstAttribute="leading" secondItem="uPd-TI-KWt" secondAttribute="leading" id="A99-Vy-TXE"/>
+                            <constraint firstItem="gcY-Oe-h5c" firstAttribute="trailing" secondItem="uPd-TI-KWt" secondAttribute="trailing" id="HDd-QC-i8Q"/>
+                            <constraint firstItem="uPd-TI-KWt" firstAttribute="trailing" secondItem="ZEd-Lw-vuf" secondAttribute="trailing" id="OrA-v7-z55"/>
+                            <constraint firstItem="uPd-TI-KWt" firstAttribute="trailing" secondItem="g0L-L6-b8c" secondAttribute="trailingMargin" id="RUh-0z-pWK"/>
+                            <constraint firstItem="uPd-TI-KWt" firstAttribute="leading" secondItem="g0L-L6-b8c" secondAttribute="leadingMargin" id="jRs-Q7-2Xh"/>
+                            <constraint firstItem="ZEd-Lw-vuf" firstAttribute="top" secondItem="gcY-Oe-h5c" secondAttribute="bottom" constant="35" id="m57-U5-3Le"/>
+                            <constraint firstItem="uPd-TI-KWt" firstAttribute="top" secondItem="UpY-II-hSg" secondAttribute="top" constant="50" id="zha-iq-NS0"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="descriptionTextView" destination="gcY-Oe-h5c" id="Ogy-Is-N4i"/>
+                        <outlet property="titleTextField" destination="uPd-TI-KWt" id="hnO-5z-FL1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="l84-xT-cMn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-155.07246376811597" y="53.571428571428569"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
