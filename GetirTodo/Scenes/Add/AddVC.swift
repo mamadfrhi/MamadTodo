@@ -33,8 +33,12 @@ class AddVC: UIViewController {
     }
     
     private func makeTodo() -> Todo? {
-        guard let title = titleTextField.text,
-              let description = descriptionTextView.text else { return nil }
+        // TODO: show proper message to user if texts didn't changed
+        guard let title = titleTextField.text, title != "", // check title text
+              let description = descriptionTextView.text,
+              description != descriptionPlaceHolderText // check description text
+        else { return nil }
+        
         let todo = Todo(id: nil,
                         title: title,
                         description: description,
@@ -68,3 +72,4 @@ extension AddVC: UITextViewDelegate {
 // TODO: This class is tighly coupled and not testable
 // make a coordinator for this class as well or call save functionality of VM
 // from MainCoordinator
+// TODO: prevent
