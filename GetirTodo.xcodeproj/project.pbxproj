@@ -26,6 +26,7 @@
 		87F53A04281187AF0081D5C7 /* AddVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F53A03281187AF0081D5C7 /* AddVC.swift */; };
 		87F53A852811ABEB0081D5C7 /* CoreDataTestStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F53A842811ABEB0081D5C7 /* CoreDataTestStack.swift */; };
 		87F53A8D2811C03C0081D5C7 /* GetirTodoIntegrationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F53A8C2811C03C0081D5C7 /* GetirTodoIntegrationTest.swift */; };
+		87F53AB72811E5580081D5C7 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F53AB62811E5580081D5C7 /* Alert.swift */; };
 		F72669392590B8DE00AB3034 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72669382590B8DE00AB3034 /* AppDelegate.swift */; };
 		F72669402590B8DE00AB3034 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F726693E2590B8DE00AB3034 /* Main.storyboard */; };
 		F72669422590B8DF00AB3034 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F72669412590B8DF00AB3034 /* Assets.xcassets */; };
@@ -71,6 +72,7 @@
 		87F53A03281187AF0081D5C7 /* AddVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddVC.swift; sourceTree = "<group>"; };
 		87F53A842811ABEB0081D5C7 /* CoreDataTestStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataTestStack.swift; sourceTree = "<group>"; };
 		87F53A8C2811C03C0081D5C7 /* GetirTodoIntegrationTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetirTodoIntegrationTest.swift; sourceTree = "<group>"; };
+		87F53AB62811E5580081D5C7 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		F72669352590B8DD00AB3034 /* GetirTodo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GetirTodo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F72669382590B8DE00AB3034 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F726693F2590B8DE00AB3034 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 				87321F742810796100E8DC68 /* Main */,
 				87321FE028109BF500E8DC68 /* Details */,
 				87F539FD2811878B0081D5C7 /* Add */,
+				87F53AB52811E54E0081D5C7 /* Alert */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -215,6 +218,14 @@
 				87F53A03281187AF0081D5C7 /* AddVC.swift */,
 			);
 			path = Add;
+			sourceTree = "<group>";
+		};
+		87F53AB52811E54E0081D5C7 /* Alert */ = {
+			isa = PBXGroup;
+			children = (
+				87F53AB62811E5580081D5C7 /* Alert.swift */,
+			);
+			path = Alert;
 			sourceTree = "<group>";
 		};
 		F726692C2590B8DD00AB3034 = {
@@ -402,6 +413,7 @@
 				87321F702810794100E8DC68 /* Coordinator.swift in Sources */,
 				87F539C2281153960081D5C7 /* TodoStorageManager.swift in Sources */,
 				878D6B3E28113A8C00B736B3 /* TodoData.xcdatamodeld in Sources */,
+				87F53AB72811E5580081D5C7 /* Alert.swift in Sources */,
 				87F539D4281154F70081D5C7 /* Services.swift in Sources */,
 				87321F8628107A8200E8DC68 /* MainVM.swift in Sources */,
 				87321F8B28107C4500E8DC68 /* VMAbstraction.swift in Sources */,
