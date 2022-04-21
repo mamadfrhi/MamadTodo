@@ -16,7 +16,7 @@ import XCTest
  
  */
 
-class GetirTodoTests: XCTestCase {
+class GetirCoreDataTest: XCTestCase {
 
     var todoStorageManager: TodoStorageManager!
     var coreDataStack: CoreDataTestStack!
@@ -64,7 +64,7 @@ class GetirTodoTests: XCTestCase {
 
 
 // MARK: Helpers
-extension GetirTodoTests {
+extension GetirCoreDataTest {
     private func makeTodos() -> [Todo] {
         let todo0 = Todo(id: UUID().uuidString,
                         title: "write raeadme.md",
