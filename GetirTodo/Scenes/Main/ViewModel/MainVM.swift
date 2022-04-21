@@ -88,13 +88,9 @@ extension MainVM: MainViewModelType {
         return viewData
     }
     
-    func add() {
-        print("Add new todo tapped")
-    }
+    func deleteButtonTapped(at: IndexPath) { delete(index: at.row) }
     
-    func delete(at: IndexPath) { delete(index: at.row) }
-    
-    func edit(at: IndexPath) {
+    func editButtonTapped(at: IndexPath) {
         print("edit todo tapped")
     }
     

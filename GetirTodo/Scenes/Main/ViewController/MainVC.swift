@@ -76,13 +76,13 @@ extension MainVC {
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete") {
             [weak self]
             (_,_,_) in
-            self?.viewModel.delete(at: indexPath)
+            self?.viewModel.deleteButtonTapped(at: indexPath)
         }
         
         let editAction = UIContextualAction(style: .normal, title: "Edit") {
             [weak self]
             (_,_,_)  in
-            self?.viewModel.edit(at: indexPath)
+            self?.viewModel.editButtonTapped(at: indexPath)
         }
         editAction.backgroundColor = .blue
         let swipeActions = UISwipeActionsConfiguration(actions: [deleteAction, editAction])
