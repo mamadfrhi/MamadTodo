@@ -21,11 +21,11 @@ protocol MainViewModelType {
     // Events
     func start()
     
-    func add()
+    func addButtonTapped(from controller: UIViewController)
     
-    func delete(at: IndexPath)
+    func deleteButtonTapped(at: IndexPath)
     
-    func edit(at: IndexPath)
+    func editButtonTapped(at: IndexPath)
     
     func didSelectRow(_ row: Int, from controller: UIViewController)
     
