@@ -99,7 +99,9 @@ extension MainVC {
 // MARK: - ViewModel Delegate
 extension MainVC: MainViewModelViewDelegate {
     func refreshScreen() {
-        self.tableView.reloadData()
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
     }
     
     func selectedTodoAtRow() -> Int {
@@ -107,6 +109,7 @@ extension MainVC: MainViewModelViewDelegate {
     }
     
     func showError(errorMessage: String) {
+        // Remember to show it on main thread
         print("Show Error")
     }
 }
