@@ -27,11 +27,19 @@ class AddVC: UIViewController {
     
     //MARK: Actions
     @IBAction func save(_ sender: Any) {
-        // call mainVM to save newly added
+        guard let todo = makeTodo() else { return }
+        mainVM.add(todo: todo)
+        self.dismiss(animated: true, completion: nil)
     }
     
-    deinit {
-        print("Not retain cycle in AddVC")
+    private func makeTodo() -> Todo? {
+        guard let title = titleTextField.text,
+              let description = descriptionTextView.text else { return nil }
+        let todo = Todo(id: nil,
+                        title: title,
+                        description: description,
+                        createdAt: nil)
+        return todo
     }
 }
 
@@ -39,7 +47,7 @@ class AddVC: UIViewController {
 // MARK: - UITextViewDelegate
 // Manage textview placeholder
 extension AddVC: UITextViewDelegate {
-
+    
     func textViewDidBeginEditing(_ textView: UITextView) {
         
         if !descriptionTextView.text!.isEmpty && descriptionTextView.text! == descriptionPlaceHolderText {
@@ -47,7 +55,7 @@ extension AddVC: UITextViewDelegate {
             descriptionTextView.textColor = .black
         }
     }
-
+    
     func textViewDidEndEditing(_ textView: UITextView) {
         if descriptionTextView.text.isEmpty {
             descriptionTextView.text = descriptionPlaceHolderText

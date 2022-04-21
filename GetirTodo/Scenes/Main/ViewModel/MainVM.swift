@@ -47,7 +47,7 @@ extension MainVM {
         }
     }
     
-    private func add(todo: Todo) {
+    func add(todo: Todo) {
         services.create(todo: todo) {
             [weak self]
             (result) in
