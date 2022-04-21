@@ -65,7 +65,19 @@ extension TodoStorageManager: Storage {
     }
     
     func delete<T>(object: T, completion: @escaping (Result<Bool, Error>) -> ()) {
-        print("delete in TodoStorageManager called")
+        guard let todoManagedObject = object as Any as? NSManagedObject else {
+            completion(.failure(StorageError.storageDataGeneral))
+            return
+        }
+        
+        mainContext.delete(todoManagedObject)
+        
+        do {
+            try mainContext.save()
+            completion(.success(true))
+        } catch let error {
+            completion(.failure(error))
+        }
     }
 }
 

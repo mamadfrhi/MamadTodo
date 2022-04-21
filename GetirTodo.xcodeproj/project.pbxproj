@@ -22,6 +22,8 @@
 		87F539CA2811549A0081D5C7 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F539C92811549A0081D5C7 /* Storage.swift */; };
 		87F539D4281154F70081D5C7 /* Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F539D3281154F70081D5C7 /* Services.swift */; };
 		87F539F9281167830081D5C7 /* TodosManagedObjectsContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F539F8281167830081D5C7 /* TodosManagedObjectsContainer.swift */; };
+		87F539FF2811879F0081D5C7 /* Add.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87F539FE2811879F0081D5C7 /* Add.storyboard */; };
+		87F53A04281187AF0081D5C7 /* AddVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F53A03281187AF0081D5C7 /* AddVC.swift */; };
 		F72669392590B8DE00AB3034 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72669382590B8DE00AB3034 /* AppDelegate.swift */; };
 		F72669402590B8DE00AB3034 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F726693E2590B8DE00AB3034 /* Main.storyboard */; };
 		F72669422590B8DF00AB3034 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F72669412590B8DF00AB3034 /* Assets.xcassets */; };
@@ -63,6 +65,8 @@
 		87F539C92811549A0081D5C7 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		87F539D3281154F70081D5C7 /* Services.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services.swift; sourceTree = "<group>"; };
 		87F539F8281167830081D5C7 /* TodosManagedObjectsContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodosManagedObjectsContainer.swift; sourceTree = "<group>"; };
+		87F539FE2811879F0081D5C7 /* Add.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Add.storyboard; sourceTree = "<group>"; };
+		87F53A03281187AF0081D5C7 /* AddVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddVC.swift; sourceTree = "<group>"; };
 		F72669352590B8DD00AB3034 /* GetirTodo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GetirTodo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F72669382590B8DE00AB3034 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F726693F2590B8DE00AB3034 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -120,6 +124,7 @@
 				87321F6D2810794100E8DC68 /* AppCoordinator.swift */,
 				87321F742810796100E8DC68 /* Main */,
 				87321FE028109BF500E8DC68 /* Details */,
+				87F539FD2811878B0081D5C7 /* Add */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -197,6 +202,15 @@
 				87F539F8281167830081D5C7 /* TodosManagedObjectsContainer.swift */,
 			);
 			path = Storage;
+			sourceTree = "<group>";
+		};
+		87F539FD2811878B0081D5C7 /* Add */ = {
+			isa = PBXGroup;
+			children = (
+				87F539FE2811879F0081D5C7 /* Add.storyboard */,
+				87F53A03281187AF0081D5C7 /* AddVC.swift */,
+			);
+			path = Add;
 			sourceTree = "<group>";
 		};
 		F726692C2590B8DD00AB3034 = {
@@ -352,6 +366,7 @@
 			files = (
 				F72669452590B8DF00AB3034 /* LaunchScreen.storyboard in Resources */,
 				F72669422590B8DF00AB3034 /* Assets.xcassets in Resources */,
+				87F539FF2811879F0081D5C7 /* Add.storyboard in Resources */,
 				F72669402590B8DE00AB3034 /* Main.storyboard in Resources */,
 				87321FE528109C1D00E8DC68 /* Details.storyboard in Resources */,
 			);
@@ -386,6 +401,7 @@
 				87321F8B28107C4500E8DC68 /* VMAbstraction.swift in Sources */,
 				87321F902810833700E8DC68 /* Todo.swift in Sources */,
 				87321F8128107A7A00E8DC68 /* MainVC.swift in Sources */,
+				87F53A04281187AF0081D5C7 /* AddVC.swift in Sources */,
 				87321FD928109BEC00E8DC68 /* DetailsVC.swift in Sources */,
 				87321F7928107A0600E8DC68 /* MainCoordinator.swift in Sources */,
 				87321F6F2810794100E8DC68 /* AppCoordinator.swift in Sources */,

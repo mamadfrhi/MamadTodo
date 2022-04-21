@@ -8,6 +8,10 @@
 import CoreData
 import Foundation
 
+
+// TODO: Instead of this container create a wrapper
+// for the todo NSManagedObject
+
 class TodosManagedObjectsContainer {
     
     // MARK: Properties

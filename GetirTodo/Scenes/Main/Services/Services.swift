@@ -8,8 +8,9 @@
 import CoreData
 
 protocol ServicesType {
-    func createOnStorage(todo: Todo, completion: @escaping (Result<Bool, Error>)->())
-    func fetchTodos(completion: @escaping (Result<[NSManagedObject], Error>)->())
+    func fetch(completion: @escaping (Result<[NSManagedObject], Error>)->())
+    func create(todo: Todo, completion: @escaping (Result<Bool, Error>)->())
+    func delete(todoManagedObject: NSManagedObject, completion: @escaping (Result<Bool, Error>)->())
 }
 
 class Services {
@@ -23,7 +24,8 @@ class Services {
 }
 
 extension Services: ServicesType {
-    func fetchTodos(completion: @escaping (Result<[NSManagedObject], Error>) -> ()) {
+    
+    func fetch(completion: @escaping (Result<[NSManagedObject], Error>) -> ()) {
         storage.fetch { (result) in
             switch result {
             case .success(let todos):
@@ -39,10 +41,21 @@ extension Services: ServicesType {
         }
     }
     
-    func createOnStorage(todo: Todo, completion: @escaping (Result<Bool, Error>) -> ()) {
+    func create(todo: Todo, completion: @escaping (Result<Bool, Error>) -> ()) {
         storage.create(object: todo) { (result) in
             switch result {
             case .success(_):
+                completion(.success(true))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
+    
+    func delete(todoManagedObject: NSManagedObject, completion: @escaping (Result<Bool, Error>) -> ()) {
+        storage.delete(object: todoManagedObject) { (result) in
+            switch result {
+            case .success:
                 completion(.success(true))
             case .failure(let error):
                 completion(.failure(error))

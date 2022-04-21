@@ -14,7 +14,7 @@ class MainVM {
     
     // MARK: Properties
     private var todos: [Todo] = []
-    var todosContainer: TodosManagedObjectsContainer? {
+    private var todosContainer: TodosManagedObjectsContainer? {
         didSet {
             self.todos = todosContainer!.todos
         }
@@ -26,6 +26,7 @@ class MainVM {
     
     func start() {
         fetch()
+        viewDelegate?.refreshScreen()
     }
 }
 
@@ -33,7 +34,7 @@ class MainVM {
 // todos CRUD
 extension MainVM {
     private func fetch() {
-        services.fetchTodos {
+        services.fetch {
             [weak self]
             (result) in
             switch result {
@@ -47,13 +48,28 @@ extension MainVM {
     }
     
     private func add(todo: Todo) {
-        services.createOnStorage(todo: todo) {
+        services.create(todo: todo) {
             [weak self]
             (result) in
             switch result {
             case .success:
                 // TODO: add a good message view for the users
                 print("successfully saved")
+                self?.start()
+            case .failure(let error):
+                self?.viewDelegate?.showError(errorMessage: error.localizedDescription)
+            }
+        }
+    }
+    
+    private func delete(index: Int) {
+        guard let todoNSManagedObj = todosContainer?.todosNSManagedObjects[index] else { return }
+        services.delete(todoManagedObject: todoNSManagedObj) {
+            [weak self]
+            (result) in
+            switch result {
+            case .success:
+                print("successfully deleted")
                 self?.start()
             case .failure(let error):
                 self?.viewDelegate?.showError(errorMessage: error.localizedDescription)
@@ -76,9 +92,7 @@ extension MainVM: MainViewModelType {
         print("Add new todo tapped")
     }
     
-    func delete(at: IndexPath) {
-        print("delete todo tapped")
-    }
+    func delete(at: IndexPath) { delete(index: at.row) }
     
     func edit(at: IndexPath) {
         print("edit todo tapped")
