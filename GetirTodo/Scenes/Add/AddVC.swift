@@ -45,7 +45,7 @@ class AddVC: UIViewController {
     
     private func makeTodo() -> Todo? {
         // TODO: show proper message to user if texts didn't changed
-        guard let title = titleTextField.text, title != "", // check title text
+        guard let title = titleTextField.text?.capitalized, title != "", // check title text
               let description = descriptionTextView.text,
               description != descriptionPlaceHolderText // check description text
         else { return nil }
