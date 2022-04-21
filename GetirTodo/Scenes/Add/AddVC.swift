@@ -25,6 +25,17 @@ class AddVC: UIViewController {
     private let descriptionPlaceHolderText = "Write description of your todo here! :D"
     private var mainVM: MainVM!
     
+    // MARK: UIViewController
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        configTestView()
+    }
+    private func configTestView() {
+        descriptionTextView.layer.cornerRadius = 5
+        descriptionTextView.layer.borderColor = UIColor.black.cgColor
+        descriptionTextView.layer.borderWidth = 1
+    }
+    
     //MARK: Actions
     @IBAction func save(_ sender: Any) {
         guard let todo = makeTodo() else { return }
