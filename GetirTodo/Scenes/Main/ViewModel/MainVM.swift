@@ -13,8 +13,8 @@ class MainVM {
     var viewDelegate: MainViewModelViewDelegate?
     
     // MARK: Properties
-    private var todos: [Todo] = []
-    private var todosContainer: TodosManagedObjectsContainer? {
+    var todos: [Todo] = []
+    var todosContainer: TodosManagedObjectsContainer? {
         didSet {
             self.todos = todosContainer!.todos
         }
@@ -62,7 +62,7 @@ extension MainVM {
         }
     }
     
-    private func delete(index: Int) {
+    func delete(index: Int) {
         guard let todoNSManagedObj = todosContainer?.todosNSManagedObjects[index] else { return }
         services.delete(todoManagedObject: todoNSManagedObj) {
             [weak self]
