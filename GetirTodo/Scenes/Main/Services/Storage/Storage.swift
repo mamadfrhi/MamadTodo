@@ -10,7 +10,7 @@ import CoreData
 protocol Storage {
     func create<T>(object: T, completion: @escaping (Result<Bool, Error>) -> ())
     func delete<T>(object: T, completion: @escaping (Result<Bool, Error>) -> ())
-    func fetch<T>(completion: @escaping (Result<[T]?, Error>) -> ())
+    func fetch<T:NSManagedObject>(completion: @escaping (Result<[T]?, Error>) -> ())
 }
 struct StorageError {
     static let storageDataGeneral = NSError(domain: "An error raised while dealing with the storage.", code: 00, userInfo: nil)
