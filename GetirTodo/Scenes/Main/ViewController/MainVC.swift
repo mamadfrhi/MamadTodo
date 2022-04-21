@@ -48,7 +48,7 @@ class MainVC: UIViewController {
     }
     
     @objc private func addButtonTapped() {
-        viewModel.add()
+        viewModel.addButtonTapped(from: self)
     }
 }
 

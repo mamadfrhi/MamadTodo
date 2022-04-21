@@ -37,6 +37,7 @@ protocol MainViewModelType {
 // call in VM
 protocol MainViewModelCoordinatorDelegate {
     func didSelect(todo: Todo, from controller: UIViewController)
+    func addButtonTapped(from controller: UIViewController)
 }
 
 // MARK: - ViewModelViewDelegate

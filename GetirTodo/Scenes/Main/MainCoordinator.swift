@@ -40,9 +40,13 @@ class MainCoordinator: Coordinator {
 }
 
 // MARK: - ViewModel Callbacks
-extension MainCoordinator : MainViewModelCoordinatorDelegate {
+extension MainCoordinator: MainViewModelCoordinatorDelegate {
     func didSelect(todo: Todo, from controller: UIViewController) {
-        self.goToDetailsPage(with: todo, from: controller)
+        goToDetailsPage(with: todo, from: controller)
+    }
+    
+    func addButtonTapped(from controller: UIViewController) {
+        goToAddPage(from: controller)
     }
 }
 
@@ -53,6 +57,15 @@ extension MainCoordinator {
         let todoViewData = TodoViewData(todo: todo)
         let detailVC = DetailsVC.`init`(todoViewData: todoViewData)
         rootNavigationController.present(detailVC,
+                                         animated: true,
+                                         completion: nil)
+    }
+    
+    private func goToAddPage(from controller: UIViewController) {
+        guard let mainVC = controller as? MainVC,
+              let mainVM = mainVC.viewModel else { return } // TODO: think about if it's better to send VM from coordinator or from VC itself
+        let addVC = AddVC.`init`(mainVM: mainVM)
+        rootNavigationController.present(addVC,
                                          animated: true,
                                          completion: nil)
     }

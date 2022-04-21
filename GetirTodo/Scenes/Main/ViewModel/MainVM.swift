@@ -111,4 +111,8 @@ extension MainVM: MainViewModelCoordinatorDelegate {
         coordinatorDelegate?.didSelect(todo: todo,
                                        from: controller)
     }
+    
+    func addButtonTapped(from controller: UIViewController) {
+        coordinatorDelegate?.addButtonTapped(from: controller)
+    }
 }
