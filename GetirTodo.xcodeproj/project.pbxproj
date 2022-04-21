@@ -16,7 +16,11 @@
 		87321F902810833700E8DC68 /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87321F8F2810833700E8DC68 /* Todo.swift */; };
 		87321FD928109BEC00E8DC68 /* DetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87321FD828109BEC00E8DC68 /* DetailsVC.swift */; };
 		87321FE528109C1D00E8DC68 /* Details.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87321FE428109C1D00E8DC68 /* Details.storyboard */; };
-		878D6B3E28113A8C00B736B3 /* todo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 878D6B3C28113A8C00B736B3 /* todo.xcdatamodeld */; };
+		878D6B3E28113A8C00B736B3 /* TodoData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 878D6B3C28113A8C00B736B3 /* TodoData.xcdatamodeld */; };
+		878D6B4528113BD600B736B3 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878D6B4428113BD600B736B3 /* CoreDataStack.swift */; };
+		87F539C2281153960081D5C7 /* TodoStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F539C1281153960081D5C7 /* TodoStorageManager.swift */; };
+		87F539CA2811549A0081D5C7 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F539C92811549A0081D5C7 /* Storage.swift */; };
+		87F539D4281154F70081D5C7 /* Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F539D3281154F70081D5C7 /* Services.swift */; };
 		F72669392590B8DE00AB3034 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72669382590B8DE00AB3034 /* AppDelegate.swift */; };
 		F72669402590B8DE00AB3034 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F726693E2590B8DE00AB3034 /* Main.storyboard */; };
 		F72669422590B8DF00AB3034 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F72669412590B8DF00AB3034 /* Assets.xcassets */; };
@@ -53,6 +57,10 @@
 		87321FD828109BEC00E8DC68 /* DetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsVC.swift; sourceTree = "<group>"; };
 		87321FE428109C1D00E8DC68 /* Details.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Details.storyboard; sourceTree = "<group>"; };
 		878D6B3D28113A8C00B736B3 /* todo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = todo.xcdatamodel; sourceTree = "<group>"; };
+		878D6B4428113BD600B736B3 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		87F539C1281153960081D5C7 /* TodoStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoStorageManager.swift; sourceTree = "<group>"; };
+		87F539C92811549A0081D5C7 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
+		87F539D3281154F70081D5C7 /* Services.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services.swift; sourceTree = "<group>"; };
 		F72669352590B8DD00AB3034 /* GetirTodo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GetirTodo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F72669382590B8DE00AB3034 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F726693F2590B8DE00AB3034 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -98,7 +106,7 @@
 				F72669412590B8DF00AB3034 /* Assets.xcassets */,
 				F72669432590B8DF00AB3034 /* LaunchScreen.storyboard */,
 				F72669462590B8DF00AB3034 /* Info.plist */,
-				878D6B3C28113A8C00B736B3 /* todo.xcdatamodeld */,
+				878D6B3C28113A8C00B736B3 /* TodoData.xcdatamodeld */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -163,6 +171,8 @@
 		87321F9E281086ED00E8DC68 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				87F539CF281154E80081D5C7 /* Storage */,
+				87F539D3281154F70081D5C7 /* Services.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -174,6 +184,16 @@
 				87321FE428109C1D00E8DC68 /* Details.storyboard */,
 			);
 			path = Details;
+			sourceTree = "<group>";
+		};
+		87F539CF281154E80081D5C7 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				87F539C92811549A0081D5C7 /* Storage.swift */,
+				878D6B4428113BD600B736B3 /* CoreDataStack.swift */,
+				87F539C1281153960081D5C7 /* TodoStorageManager.swift */,
+			);
+			path = Storage;
 			sourceTree = "<group>";
 		};
 		F726692C2590B8DD00AB3034 = {
@@ -356,7 +376,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				87321F702810794100E8DC68 /* Coordinator.swift in Sources */,
-				878D6B3E28113A8C00B736B3 /* todo.xcdatamodeld in Sources */,
+				87F539C2281153960081D5C7 /* TodoStorageManager.swift in Sources */,
+				878D6B3E28113A8C00B736B3 /* TodoData.xcdatamodeld in Sources */,
+				87F539D4281154F70081D5C7 /* Services.swift in Sources */,
 				87321F8628107A8200E8DC68 /* MainVM.swift in Sources */,
 				87321F8B28107C4500E8DC68 /* VMAbstraction.swift in Sources */,
 				87321F902810833700E8DC68 /* Todo.swift in Sources */,
@@ -365,6 +387,8 @@
 				87321F7928107A0600E8DC68 /* MainCoordinator.swift in Sources */,
 				87321F6F2810794100E8DC68 /* AppCoordinator.swift in Sources */,
 				F72669392590B8DE00AB3034 /* AppDelegate.swift in Sources */,
+				878D6B4528113BD600B736B3 /* CoreDataStack.swift in Sources */,
+				87F539CA2811549A0081D5C7 /* Storage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -695,13 +719,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		878D6B3C28113A8C00B736B3 /* todo.xcdatamodeld */ = {
+		878D6B3C28113A8C00B736B3 /* TodoData.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
 				878D6B3D28113A8C00B736B3 /* todo.xcdatamodel */,
 			);
 			currentVersion = 878D6B3D28113A8C00B736B3 /* todo.xcdatamodel */;
-			path = todo.xcdatamodeld;
+			path = TodoData.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
