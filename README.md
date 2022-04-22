@@ -1,3 +1,35 @@
+### Hi dear visitor from the technical team of Getir
+I'm Mamad Farrahi and super happy from your invitation. I was busy during previous weeks and couldn't spend time on this project. So, To don't get out of the hiring process I've sent 75% completed version of the project to Cansu. I'd like to mention that I have a plan to provide you readme files and other stuff which are stated in the requirements.
+
+Current Version:
+* MVVM-C+Services Architecture
+* Testable, Loosly Coupled, Abstracted and Clean source code
+* UI & Unit Tests
+
+Future Version:
+* Readme files
+* Diagrams
+* Last refactoring and cleaning of the source code
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # GetirTodo
 
 ## Project:
