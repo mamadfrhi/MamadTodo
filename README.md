@@ -14,25 +14,11 @@ Future Version:
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<details>
+<summary>Project Explanation</summary>
+<br>
 
 # GetirTodo
-
 ## Project:
 
 We would like you to build a simple "to-do" app which consists of tasks in list and task detail in detail screen.
@@ -60,3 +46,4 @@ We would like you to build a simple "to-do" app which consists of tasks in list 
 
 After completing the assignment, create a pull request to `main` branch.
 Then please send an email to the People Department with the link of the GitHub repo.
+</details>
