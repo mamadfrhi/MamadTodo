@@ -20,6 +20,7 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="PGM-oS-7Uc">
                                 <rect key="frame" x="32" y="206.5" width="350" height="493"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <accessibility key="accessibilityConfiguration" identifier="detailsTextView" label="detailsTextView"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="493" id="4on-Gy-dir"/>
                                     <constraint firstAttribute="width" constant="350" id="KhY-db-40X"/>

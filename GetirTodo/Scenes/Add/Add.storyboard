@@ -23,11 +23,12 @@
                                     <constraint firstAttribute="height" constant="50" id="OoI-4B-ngH"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                             </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Write description of your todo here! :D" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="gcY-Oe-h5c">
                                 <rect key="frame" x="20" y="166" width="374" height="172"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <accessibility key="accessibilityConfiguration" label="descriptionTextView"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="172" id="NhP-Sp-QQC"/>
                                 </constraints>

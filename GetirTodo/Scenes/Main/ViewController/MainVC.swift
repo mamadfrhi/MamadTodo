@@ -36,6 +36,7 @@ class MainVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.accessibilityLabel = "tableView"
         viewModel.start()
     }
     

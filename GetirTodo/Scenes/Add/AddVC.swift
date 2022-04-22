@@ -45,7 +45,7 @@ class AddVC: UIViewController {
     
     //MARK: Functions
     private func makeTodo() -> Todo? {
-        guard let title = titleTextField.text?.capitalized, title != "", // check title text
+        guard let title = titleTextField.text, title != "", // check title text
               let description = descriptionTextView.text, // check description text
               description != descriptionPlaceHolderText,
               description != ""
