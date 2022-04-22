@@ -33,7 +33,8 @@ class GetirTodoIntegrationTest: XCTestCase {
     // It uses real CoreData stack which used in app
     func testMainVM() {
         // - given - SUT
-        let storage = TodoStorageManager()
+        let coreDataTestStack = CoreDataTestStack()
+        let storage = TodoStorageManager(mainContext: coreDataTestStack.mainContext)
         let services = Services(storage: storage)
         let mainVM = MainVM(services: services)
         // MARK: VM Test
