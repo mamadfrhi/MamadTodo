@@ -18,10 +18,10 @@ class MainVM {
             viewDelegate?.refreshScreen()
         }
     }
-    var services: ServicesType
+    var services: Serviceable
     
     // MARK: Functions
-    init(services: ServicesType) { self.services = services }
+    init(services: Serviceable) { self.services = services }
     
     func start() {
         fetch()
