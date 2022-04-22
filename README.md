@@ -62,6 +62,7 @@ Make 2 different stacks which makes storage and Core Data layer of the applicati
 <img src="https://www.uplooder.net/img/image/99/80402952ef313e980b9ac940a569e937/Untitled-3.jpeg" alt="J" width="600"/>
 
 The left one uses by the application to really save on disk.
+
 The right one uses by the test cases. It's created on memory that is why tests run very fast.
 
 ## Video 🎥
