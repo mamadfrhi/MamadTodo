@@ -7,6 +7,12 @@
 
 import CoreData
 
+protocol TodoObjectType {
+    var todoNSManagedObject: NSManagedObject { get set }
+    var todo: Todo? { get set}
+    var todoViewData: TodoViewData? { get }
+}
+
 struct TodoObject {
     private var _todoNSManagedObject: NSManagedObject!
     var todoNSManagedObject: NSManagedObject {
