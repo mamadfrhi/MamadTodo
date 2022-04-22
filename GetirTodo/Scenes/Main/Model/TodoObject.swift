@@ -8,13 +8,13 @@
 import CoreData
 
 struct TodoObject {
+    private var _todoNSManagedObject: NSManagedObject!
     var todoNSManagedObject: NSManagedObject {
         set {
+            _todoNSManagedObject = newValue
             fillTodoModel(from: newValue)
         }
-        get {
-            return self.todoNSManagedObject
-        }
+        get { return _todoNSManagedObject }
     }
     
     var todo: Todo?
