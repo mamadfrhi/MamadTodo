@@ -28,7 +28,6 @@ class GetirTodoIntegrationTest: XCTestCase {
         
         // then
         XCTAssertEqual(todoView.createdAt, dateString)
-        XCTAssertEqual(todoView.title, todoTitle.capitalized)
     }
     
     // It uses real CoreData stack which used in app
@@ -42,10 +41,8 @@ class GetirTodoIntegrationTest: XCTestCase {
         mainVM.start()
         
         // - then -
-        XCTAssertEqual(mainVM.todosContainer?.todos.count,
-                       mainVM.todosContainer?.todosNSManagedObjects.count)
-        XCTAssertEqual(mainVM.todos.count,
-                       mainVM.todosContainer?.todosNSManagedObjects.count)
+        XCTAssertEqual(mainVM.todoObjects?.count,
+                       mainVM.numberOfRows())
         
         // - when - save
         let todo = Todo(id: UUID().uuidString,
@@ -54,17 +51,14 @@ class GetirTodoIntegrationTest: XCTestCase {
                         createdAt: Date())
         mainVM.add(todo: todo)
         // - then - save
-        XCTAssertEqual(mainVM.todos.count,
-                       mainVM.todosContainer?.todosNSManagedObjects.count)
+        XCTAssertEqual(mainVM.todoObjects?.count,
+                       mainVM.numberOfRows())
         
         // - when - remove
         let lastRow = giveLastRow(mainVM: mainVM)
         mainVM.delete(index: lastRow)
         // - then - remove
-        XCTAssertEqual(mainVM.todos.count,
-                       mainVM.todosContainer?.todosNSManagedObjects.count)
-        // - then - remove
-        XCTAssertEqual(mainVM.todosContainer?.todos.count,
+        XCTAssertEqual(mainVM.todoObjects?.count,
                        mainVM.numberOfRows())
     }
 }
@@ -72,6 +66,6 @@ class GetirTodoIntegrationTest: XCTestCase {
 // MARK: Helpers
 extension GetirTodoIntegrationTest {
     func giveLastRow(mainVM: MainVM) -> Int {
-        IndexPath(row: (mainVM.todosContainer?.todosNSManagedObjects.count)!-1, section: 0).row
+        IndexPath(row: (mainVM.todoObjects!.count)-1, section: 0).row
     }
 }
