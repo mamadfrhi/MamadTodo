@@ -13,10 +13,9 @@ class MainVM {
     var viewDelegate: MainViewModelViewDelegate?
     
     // MARK: Properties
-    var todos: [Todo] = []
-    var todosContainer: TodosManagedObjectsContainer? {
+    private var todoObjects: [TodoObjectType]? {
         didSet {
-            self.todos = todosContainer!.todos
+            viewDelegate?.refreshScreen()
         }
     }
     private var services: ServicesType
@@ -38,8 +37,9 @@ extension MainVM {
             (result) in
             switch result {
             case .success(let todosManagedObjects):
-                let todosContainer = TodosManagedObjectsContainer(todosNSManagedObjects: todosManagedObjects)
-                self?.todosContainer = todosContainer
+                self?.todoObjects = todosManagedObjects.compactMap{
+                    TodoObject(nsManagedObject: $0)
+                }
             case .failure(let error):
                 self?.viewDelegate?.showError(errorMessage: error.localizedDescription)
             }
@@ -62,7 +62,7 @@ extension MainVM {
     }
     
     func delete(index: Int) {
-        guard let todoNSManagedObj = todosContainer?.todosNSManagedObjects[index] else { return }
+        guard let todoNSManagedObj = todoObjects?[index].todoNSManagedObject else { return }
         services.delete(todoManagedObject: todoNSManagedObj) {
             [weak self]
             (result) in
@@ -80,10 +80,10 @@ extension MainVM {
 // MARK: - ViewModelType
 extension MainVM: MainViewModelType {
     
-    func numberOfRows() -> Int { return todos.count }
+    func numberOfRows() -> Int { return todoObjects!.count }
     
     func cellDataFor(row: Int) -> TodoViewData {
-        let viewData = TodoViewData(todo: todos[row])
+        let viewData = todoObjects![row].todoViewData!
         return viewData
     }
     
@@ -95,7 +95,7 @@ extension MainVM: MainViewModelType {
     
     func didSelectRow(_ row: Int, from controller: UIViewController) {
         // GoTo Details Page
-        let todo = todos[row]
+        let todo = todoObjects![row].todo!
         didSelect(todo: todo, from: controller)
     }
 }

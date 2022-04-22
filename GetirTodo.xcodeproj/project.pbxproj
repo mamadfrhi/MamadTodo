@@ -23,7 +23,6 @@
 		87F539C2281153960081D5C7 /* TodoStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F539C1281153960081D5C7 /* TodoStorageManager.swift */; };
 		87F539CA2811549A0081D5C7 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F539C92811549A0081D5C7 /* Storage.swift */; };
 		87F539D4281154F70081D5C7 /* Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F539D3281154F70081D5C7 /* Services.swift */; };
-		87F539F9281167830081D5C7 /* TodosManagedObjectsContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F539F8281167830081D5C7 /* TodosManagedObjectsContainer.swift */; };
 		87F539FF2811879F0081D5C7 /* Add.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87F539FE2811879F0081D5C7 /* Add.storyboard */; };
 		87F53A04281187AF0081D5C7 /* AddVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F53A03281187AF0081D5C7 /* AddVC.swift */; };
 		87F53A852811ABEB0081D5C7 /* CoreDataTestStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F53A842811ABEB0081D5C7 /* CoreDataTestStack.swift */; };
@@ -71,7 +70,6 @@
 		87F539C1281153960081D5C7 /* TodoStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoStorageManager.swift; sourceTree = "<group>"; };
 		87F539C92811549A0081D5C7 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		87F539D3281154F70081D5C7 /* Services.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services.swift; sourceTree = "<group>"; };
-		87F539F8281167830081D5C7 /* TodosManagedObjectsContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodosManagedObjectsContainer.swift; sourceTree = "<group>"; };
 		87F539FE2811879F0081D5C7 /* Add.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Add.storyboard; sourceTree = "<group>"; };
 		87F53A03281187AF0081D5C7 /* AddVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddVC.swift; sourceTree = "<group>"; };
 		87F53A842811ABEB0081D5C7 /* CoreDataTestStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataTestStack.swift; sourceTree = "<group>"; };
@@ -212,7 +210,6 @@
 				87F539C92811549A0081D5C7 /* Storage.swift */,
 				878D6B4428113BD600B736B3 /* CoreDataStack.swift */,
 				87F539C1281153960081D5C7 /* TodoStorageManager.swift */,
-				87F539F8281167830081D5C7 /* TodosManagedObjectsContainer.swift */,
 			);
 			path = Storage;
 			sourceTree = "<group>";
@@ -432,7 +429,6 @@
 				8785FDB02812AEF3001D7244 /* TodoObject.swift in Sources */,
 				87321F6F2810794100E8DC68 /* AppCoordinator.swift in Sources */,
 				F72669392590B8DE00AB3034 /* AppDelegate.swift in Sources */,
-				87F539F9281167830081D5C7 /* TodosManagedObjectsContainer.swift in Sources */,
 				878D6B4528113BD600B736B3 /* CoreDataStack.swift in Sources */,
 				87F539CA2811549A0081D5C7 /* Storage.swift in Sources */,
 			);
