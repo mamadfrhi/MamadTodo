@@ -17,15 +17,17 @@ import XCTest
  */
 
 class GetirCoreDataTest: XCTestCase {
-
+    
     var todoStorageManager: TodoStorageManager!
-    var coreDataStack: CoreDataTestStack!
-    var todoManagedObjContainer: TodosManagedObjectsContainer!
-
+    var coreDataTESTStack: CoreDataTestStack!
+    var todoObjects: [TodoObjectType] = []
+    
     override func setUp() {
         super.setUp()
-        coreDataStack = CoreDataTestStack()
-        todoStorageManager = TodoStorageManager(mainContext: coreDataStack.mainContext)
+        coreDataTESTStack = CoreDataTestStack()
+        todoStorageManager = TodoStorageManager(mainContext: coreDataTESTStack.mainContext)
+        
+        refreshTodoObjects()
     }
     
     func test_create_todo() {
@@ -34,31 +36,29 @@ class GetirCoreDataTest: XCTestCase {
         todoStorageManager.create(object: todo) { (_) in }
         
         // when
-        refreshTodosContainer()
-        let recentlyAddedtodo = todoManagedObjContainer.todos.last!
+        refreshTodoObjects()
+        let recentlyAddedtodo = todoObjects.last!
         // then
-        XCTAssertEqual(recentlyAddedtodo.id, todo.id)
+        XCTAssertEqual(recentlyAddedtodo.todo!.id, todo.id)
     }
     
     func test_delete_todo() {
         // given
         let threeTodos = makeTodos().sorted { $0.createdAt! < $1.createdAt! }
         _ = threeTodos.map {
-            todoStorageManager.create(object: $0) { (_) in }
+            todoStorageManager.create(object: $0, completion: {_ in })
         }
         
         // when
-        refreshTodosContainer()
-        let lastTodoManagedObject = todoManagedObjContainer.todosNSManagedObjects.last!
-        todoStorageManager.delete(object: lastTodoManagedObject) { (_) in }
-        refreshTodosContainer()
+        refreshTodoObjects()
+        todoStorageManager.delete(object: todoObjects[3].todoNSManagedObject) { (_) in }
+        refreshTodoObjects()
         
         // then
-        todoManagedObjContainer.todos = todoManagedObjContainer.todos.sorted { $0.createdAt! < $1.createdAt! }
-        XCTAssertEqual(todoManagedObjContainer.todos.count, 2)
-        XCTAssertEqual(todoManagedObjContainer.todosNSManagedObjects.count, 2)
-        XCTAssertEqual(threeTodos[0].id, todoManagedObjContainer.todos[0].id)
-        XCTAssertEqual(threeTodos[1].id, todoManagedObjContainer.todos[1].id)
+        todoObjects = todoObjects.sorted { $0.todo!.createdAt! < $1.todo!.createdAt! }
+        XCTAssertEqual(todoObjects.count, 2)
+        XCTAssertEqual(threeTodos[0].id, todoObjects[0].todo!.id)
+        XCTAssertEqual(threeTodos[1].id, todoObjects[1].todo!.id)
     }
 }
 
@@ -67,27 +67,26 @@ class GetirCoreDataTest: XCTestCase {
 extension GetirCoreDataTest {
     private func makeTodos() -> [Todo] {
         let todo0 = Todo(id: UUID().uuidString,
-                        title: "write raeadme.md",
-                        description: "draw diagrams",
-                        createdAt: Date())
+                         title: "write raeadme.md",
+                         description: "draw diagrams",
+                         createdAt: Date())
         let todo1 = Todo(id: UUID().uuidString,
-                        title: "write UI test",
-                        description: "it's a good description.",
-                        createdAt: Date())
+                         title: "write UI test",
+                         description: "it's a good description.",
+                         createdAt: Date())
         let todo2 = Todo(id: UUID().uuidString,
-                        title: "Go shopping",
-                        description: "Don't forget to bring the bag!",
-                        createdAt: Date())
+                         title: "Go shopping",
+                         description: "Don't forget to bring the bag!",
+                         createdAt: Date())
         return [todo0, todo1, todo2]
     }
     
-    private func refreshTodosContainer() {
+    private func refreshTodoObjects() {
+        self.todoObjects = []
         todoStorageManager.fetch { (result) in
-            let todos = try! result.get()!
-            self.todoManagedObjContainer = TodosManagedObjectsContainer(todosNSManagedObjects: todos)
+            let nsObjects =  try! result.get()!
+            self.todoObjects.append(contentsOf: nsObjects.map { TodoObject(nsManagedObject: $0) }
+            )
         }
     }
 }
-
-// TODO: TodoManagedObjectContainer is tighly coupled
-// think about an alternative

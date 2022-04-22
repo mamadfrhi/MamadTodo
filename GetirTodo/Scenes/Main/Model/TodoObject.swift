@@ -14,7 +14,7 @@ protocol TodoObjectType {
 }
 
 struct TodoObject: TodoObjectType {
-    private var _todoNSManagedObject: NSManagedObject!
+    private(set) var _todoNSManagedObject: NSManagedObject!
     var todoNSManagedObject: NSManagedObject {
         set {
             _todoNSManagedObject = newValue

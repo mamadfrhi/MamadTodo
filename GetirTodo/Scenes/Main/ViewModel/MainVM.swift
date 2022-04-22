@@ -13,12 +13,12 @@ class MainVM {
     var viewDelegate: MainViewModelViewDelegate?
     
     // MARK: Properties
-    private var todoObjects: [TodoObjectType]? {
+    var todoObjects: [TodoObjectType]? {
         didSet {
             viewDelegate?.refreshScreen()
         }
     }
-    private var services: ServicesType
+    var services: ServicesType
     
     // MARK: Functions
     init(services: ServicesType) { self.services = services }
