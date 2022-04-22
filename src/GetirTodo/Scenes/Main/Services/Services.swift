@@ -7,7 +7,7 @@
 
 import CoreData
 
-protocol ServicesType {
+protocol Serviceable {
     func fetch(completion: @escaping (Result<[NSManagedObject], Error>)->())
     func create(todo: Todo, completion: @escaping (Result<Bool, Error>)->())
     func delete(todoManagedObject: NSManagedObject, completion: @escaping (Result<Bool, Error>)->())
@@ -23,7 +23,7 @@ class Services {
     }
 }
 
-extension Services: ServicesType {
+extension Services: Serviceable {
     
     func fetch(completion: @escaping (Result<[NSManagedObject], Error>) -> ()) {
         storage.fetch { (result) in

@@ -14,7 +14,7 @@ class MainCoordinator: Coordinator {
     private let rootNavigationController: UINavigationController
     
     private let storage: Storage = TodoStorageManager()
-    private var services: ServicesType {
+    private var services: Serviceable {
         get {
             let services = Services(storage: self.storage)
             return services
