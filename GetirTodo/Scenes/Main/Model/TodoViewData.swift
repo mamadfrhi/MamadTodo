@@ -5,6 +5,9 @@
 //  Created by iMamad on 4/22/22.
 //
 
+
+import Foundation
+
 protocol TodoViewDataType {
     var id: String { get }
     var title: String { get }
