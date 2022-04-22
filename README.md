@@ -4,7 +4,8 @@ I'm Mamad Farrahi and super happy from your invitation. I was busy during previo
 Current Version:
 * MVVM-C+Services Architecture
 * Testable, Loosly Coupled, Abstracted and Clean source code
-* UI & Unit Tests
+* UI & Unit Tests using GWT method
+* Unit test for CoreData as well
 
 Future Version:
 * Readme files
