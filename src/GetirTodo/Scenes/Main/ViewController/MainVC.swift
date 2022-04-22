@@ -64,6 +64,7 @@ extension MainVC: UITableViewDelegate, UITableViewDataSource {
         let cellData = viewModel.cellDataFor(row: indexPath.row)
         cell.textLabel?.text = cellData.title
         cell.detailTextLabel?.text = cellData.createdAt
+        cell.accessoryType = .disclosureIndicator
         
         return cell
     }
