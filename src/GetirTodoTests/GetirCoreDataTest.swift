@@ -51,7 +51,7 @@ class GetirCoreDataTest: XCTestCase {
         
         // when
         refreshTodoObjects()
-        todoStorageManager.delete(object: todoObjects[3].todoNSManagedObject) { (_) in }
+        todoStorageManager.delete(object: todoObjects[2].todoNSManagedObject) { (_) in }
         refreshTodoObjects()
         
         // then
