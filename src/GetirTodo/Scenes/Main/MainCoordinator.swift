@@ -13,27 +13,15 @@ class MainCoordinator: Coordinator {
     
     private let rootNavigationController: UINavigationController
     
-    private let storage: Storage = TodoStorageManager()
-    private var services: Serviceable {
-        get {
-            let services = Services(storage: self.storage)
-            return services
-        }
-    }
-    
-    // MARK: VM
-    private var mainVM: MainVM {
-        let mainVM = MainVM(services: services)
-        mainVM.coordinatorDelegate = self
-        return mainVM
-    }
-    
     // MARK: Coordinator
     init(rootNavigationViewController: UINavigationController) {
         self.rootNavigationController = rootNavigationViewController
     }
     
     override func start() {
+        super.addChildCoordinator(self)
+        let mainVM = MainVM(services: Services(storage: TodoStorageManager()))
+        mainVM.coordinatorDelegate = self
         let mainVC = MainVC.`init`(mainVM: mainVM)
         rootNavigationController.setViewControllers([mainVC], animated: false)
     }
@@ -63,7 +51,7 @@ extension MainCoordinator {
     
     private func goToAddPage(from controller: UIViewController) {
         guard let mainVC = controller as? MainVC,
-              let mainVM = mainVC.viewModel else { return } // TODO: think about if it's better to send VM from coordinator or from VC itself
+              let mainVM = mainVC.viewModel else { return }
         let addVC = AddVC.`init`(mainVM: mainVM)
         rootNavigationController.present(addVC,
                                          animated: true,
