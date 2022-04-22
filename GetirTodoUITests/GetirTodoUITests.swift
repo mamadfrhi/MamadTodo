@@ -9,35 +9,70 @@ import XCTest
 
 class GetirTodoUITests: XCTestCase {
     
-    private func testEmptyAddPage() {
-        let app = XCUIApplication()
-        app.navigationBars["To Do List"].buttons["Add"].tap()
-        app/*@START_MENU_TOKEN@*/.staticTexts["Save"]/*[[".buttons[\"Save\"].staticTexts[\"Save\"]",".staticTexts[\"Save\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
-        let alert = app.alerts["Warning"]
-        XCTAssertTrue(alert.exists)
+    override class func setUp() {
+        XCUIApplication().launch()
     }
     
-    private func testFilledAddPage() {
-        
+    func testWarningOnEmptyAddPage() {
         let app = XCUIApplication()
         app.navigationBars["To Do List"].buttons["Add"].tap()
-        app.textFields["Title"].tap()
+        app/*@START_MENU_TOKEN@*/.staticTexts["Save"]/*[[".buttons[\"Save\"].staticTexts[\"Save\"]",".staticTexts[\"Save\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        let warningAlert = app.alerts["Warning"]
+        XCTAssertTrue(warningAlert.exists)
+    }
+    
+    // Test below uses viretual keyboard on simulator
+    // don't forget to toggle the virtual keybaord
+    // shortcut ctrl + k
+    func testFilledAddPage() {
+        // given
+        let app = XCUIApplication()
+        app.navigationBars["To Do List"].buttons["Add"].tap()
         var mainPageViewExist = app.navigationBars["To Do List"].exists
-        XCTAssertFalse(mainPageViewExist)
+        XCTAssertTrue(mainPageViewExist)
         
-        // write a in titleTextField
-        let aKey = app/*@START_MENU_TOKEN@*/.keys["a"]/*[[".keyboards.keys[\"a\"]",".keys[\"a\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
+        app.textFields["Title"].tap()
+        // write in titleTextField
+        let AKey = app.keys["A"]
+        let spaceKey = app.keys["space"]
+        let BKey = app.keys["B"]
+        let aKey = app.keys["a"]
+        AKey.tap()
+        spaceKey.tap()
+        BKey.tap()
         aKey.tap()
-        aKey.tap()
-        app.children(matching: .window).element(boundBy: 0).children(matching: .other).element.children(matching: .other).element(boundBy: 1).children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .textView).element.tap()
         
-        // write B in descriptionTextView
-        let bKey = app/*@START_MENU_TOKEN@*/.keys["B"]/*[[".keyboards.keys[\"B\"]",".keys[\"B\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
-        bKey.tap()
-        bKey.tap()
+        // write in descriptionTextView
+        app.textViews["descriptionTextView"].tap()
+        AKey.tap()
+        aKey.tap()
+        
+        // when
         app/*@START_MENU_TOKEN@*/.staticTexts["Save"]/*[[".buttons[\"Save\"].staticTexts[\"Save\"]",".staticTexts[\"Save\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
         
+        // then
         mainPageViewExist = app.navigationBars["To Do List"].exists
-        XCTAssertTrue(mainPageViewExist)   
+        XCTAssertTrue(mainPageViewExist)
+    }
+    
+    // MARK: DetailPage Tests
+    func testDetailsPage() {
+        // given - SUT
+        let app = XCUIApplication()
+        let firstCell = app.tables["tableView"].cells.element(boundBy: 0)
+        
+        // when
+        firstCell.tap()
+        
+        // then
+        var detailsTextView = app.textViews["detailsTextView"]
+        XCTAssertNotNil(detailsTextView.value)
+        XCTAssertTrue(detailsTextView.exists)
+        
+        // when
+        detailsTextView.swipeDown()
+        detailsTextView = app.textViews["detailsTextView"]
+        XCTAssertFalse(detailsTextView.exists)
+        
     }
 }
