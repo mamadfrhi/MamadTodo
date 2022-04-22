@@ -28,7 +28,7 @@ How DO I **respect** the topics below while developing a software:
 #### MVVM?
 MVC architecture in iOS translated to Massive View Controller. The first reason for this choice is because soon or late the code base converts to a spaghetti code-base easily.  The second one is that I highly believe in sOlid principles, especially the o one which means **Open For Extension** So, I used this architecture to make a passive ViewController by outsourcing business logic to ModelView layer.
 
-#### Coordinator Design Patter?
+#### Coordinator Design Pattern?
 It makes the app coordination super simple. Plus, it brings loosly coupling betweein ViewControllers. Thus, we'll have a more testable code base. In other way, Coordinator is like a company that knows how to make each scene(VCs and VMs).
 
 #### Services?
