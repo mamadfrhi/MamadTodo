@@ -9,11 +9,11 @@ import CoreData
 
 protocol TodoObjectType {
     var todoNSManagedObject: NSManagedObject { get set }
-    var todo: Todo? { get set}
+    var todo: Todo? { get }
     var todoViewData: TodoViewData? { get }
 }
 
-struct TodoObject {
+struct TodoObject: TodoObjectType {
     private var _todoNSManagedObject: NSManagedObject!
     var todoNSManagedObject: NSManagedObject {
         set {
