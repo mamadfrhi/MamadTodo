@@ -22,12 +22,12 @@ How DO I **respect** the topics below while developing a software:
 #### MVVM-C + Services
 
 change the image
-<img src="https://www.uplooder.net/img/image/88/f2b1d43c9ca8db58dea1fa056c320bdf/architecture-diagram.jpg" alt="J" width="300"/>
+<img src="https://www.uplooder.net/img/image/46/4aaf75fe14df0917b9a23bee6abee30b/architecture-diagram.jpg" alt="J" width="300"/>
 
 
 ## Why?
 **MVVM?**
-MVC architecture in iOS translated to Massive View Controller. Because soon or late your code base converts to a spagethi code-base easily. So, I used this architecture to make a passive ViewController by outsourcing business logic to ModelView layer.
+MVC architecture in iOS translated to Massive View Controller. The first reason for this choice is because soon or late your code base converts to a spagethi code-base easily.  Secound one is that I highly believe in sOlid principles especially the o one which means Open For Extension So, I used this architecture to make a passive ViewController by outsourcing business logic to ModelView layer.
 **Coordinator Design Patter?**
 It makes the app coordination super simple. Plus, it brings loosly coupling betweein ViewControllers. Thus, we'll have a more testable code base.
 **Services?**
@@ -35,9 +35,6 @@ It makes the app coordination super simple. Plus, it brings loosly coupling betw
 **CoreData testability?**
 
 ## Video 🎥
-
-change the video
-https://user-images.githubusercontent.com/28094207/163577440-1bc674dd-adb1-48d6-87ae-7044fe21b4d6.mov
 
 
 
