@@ -25,6 +25,7 @@ class EditVC: UIViewController {
     //MARK: Properties
     private var mainVM: MainVM!
     private var todoObject: TodoObject!
+    private let descriptionPlaceHolderText = "Write description of your todo here! :D"
     
     // MARK: UIViewController
     override func viewDidLoad() {
@@ -55,7 +56,6 @@ class EditVC: UIViewController {
     private func makeTodo() -> Todo? {
         guard let title = titleTextField.text, title != "", // check title text
               let description = descriptionTextView.text, // check description text
-              description != descriptionPlaceHolderText,
               description != "",
               let todoData = todoObject.todo
         else {
