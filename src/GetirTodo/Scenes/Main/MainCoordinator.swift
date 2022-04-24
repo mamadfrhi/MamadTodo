@@ -62,7 +62,6 @@ extension MainCoordinator {
     }
     
     private func goToEdit(todo: TodoObjectType, from controller: UIViewController) {
-        // TODO: Remove from controllers as well here
         guard let mainVC = controller as? MainVC,
               let mainVM = mainVC.viewModel else { return }
         let editVC = EditVC.`init`(mainVM: mainVM, todoObject: todo)

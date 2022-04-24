@@ -89,6 +89,4 @@ extension AddVC: UITextViewDelegate {
 }
 
 
-// TODO: This class is tighly coupled and not testable
-// make a coordinator for this class as well or call save functionality of VM
-// from MainCoordinator
+// TODO: make separate VM for this VC as well

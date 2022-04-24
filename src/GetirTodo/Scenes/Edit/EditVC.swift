@@ -97,3 +97,4 @@ extension EditVC: UITextViewDelegate {
     }
 }
 
+// TODO: make separate VM for this VC as well
