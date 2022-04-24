@@ -20,6 +20,8 @@
 		8785FDB02812AEF3001D7244 /* TodoObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8785FDAF2812AEF3001D7244 /* TodoObject.swift */; };
 		878D6B3E28113A8C00B736B3 /* TodoData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 878D6B3C28113A8C00B736B3 /* TodoData.xcdatamodeld */; };
 		878D6B4528113BD600B736B3 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878D6B4428113BD600B736B3 /* CoreDataStack.swift */; };
+		87D2F8082815A42A003108F9 /* EditVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D2F8062815A42A003108F9 /* EditVC.swift */; };
+		87D2F8092815A42A003108F9 /* Edit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87D2F8072815A42A003108F9 /* Edit.storyboard */; };
 		87F539C2281153960081D5C7 /* TodoStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F539C1281153960081D5C7 /* TodoStorageManager.swift */; };
 		87F539CA2811549A0081D5C7 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F539C92811549A0081D5C7 /* Storage.swift */; };
 		87F539D4281154F70081D5C7 /* Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F539D3281154F70081D5C7 /* Services.swift */; };
@@ -67,6 +69,8 @@
 		8785FDAF2812AEF3001D7244 /* TodoObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoObject.swift; sourceTree = "<group>"; };
 		878D6B3D28113A8C00B736B3 /* todo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = todo.xcdatamodel; sourceTree = "<group>"; };
 		878D6B4428113BD600B736B3 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		87D2F8062815A42A003108F9 /* EditVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditVC.swift; sourceTree = "<group>"; };
+		87D2F8072815A42A003108F9 /* Edit.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Edit.storyboard; sourceTree = "<group>"; };
 		87F539C1281153960081D5C7 /* TodoStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoStorageManager.swift; sourceTree = "<group>"; };
 		87F539C92811549A0081D5C7 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		87F539D3281154F70081D5C7 /* Services.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services.swift; sourceTree = "<group>"; };
@@ -133,6 +137,7 @@
 				87321F742810796100E8DC68 /* Main */,
 				87321FE028109BF500E8DC68 /* Details */,
 				87F539FD2811878B0081D5C7 /* Add */,
+				87D2F8052815A3E4003108F9 /* Edit */,
 				87F53AB52811E54E0081D5C7 /* Alert */,
 			);
 			path = Scenes;
@@ -202,6 +207,15 @@
 				87321FE428109C1D00E8DC68 /* Details.storyboard */,
 			);
 			path = Details;
+			sourceTree = "<group>";
+		};
+		87D2F8052815A3E4003108F9 /* Edit */ = {
+			isa = PBXGroup;
+			children = (
+				87D2F8072815A42A003108F9 /* Edit.storyboard */,
+				87D2F8062815A42A003108F9 /* EditVC.swift */,
+			);
+			path = Edit;
 			sourceTree = "<group>";
 		};
 		87F539CF281154E80081D5C7 /* Storage */ = {
@@ -388,6 +402,7 @@
 				F72669422590B8DF00AB3034 /* Assets.xcassets in Resources */,
 				87F539FF2811879F0081D5C7 /* Add.storyboard in Resources */,
 				F72669402590B8DE00AB3034 /* Main.storyboard in Resources */,
+				87D2F8092815A42A003108F9 /* Edit.storyboard in Resources */,
 				87321FE528109C1D00E8DC68 /* Details.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -417,6 +432,7 @@
 				87F539C2281153960081D5C7 /* TodoStorageManager.swift in Sources */,
 				878D6B3E28113A8C00B736B3 /* TodoData.xcdatamodeld in Sources */,
 				87F53AB72811E5580081D5C7 /* Alert.swift in Sources */,
+				87D2F8082815A42A003108F9 /* EditVC.swift in Sources */,
 				87F539D4281154F70081D5C7 /* Services.swift in Sources */,
 				87321F8628107A8200E8DC68 /* MainVM.swift in Sources */,
 				8785FD9C2812ADF9001D7244 /* TodoViewData.swift in Sources */,

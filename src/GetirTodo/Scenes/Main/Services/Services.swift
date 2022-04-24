@@ -11,6 +11,7 @@ protocol Serviceable {
     func fetch(completion: @escaping (Result<[NSManagedObject], Error>)->())
     func create(todo: Todo, completion: @escaping (Result<Bool, Error>)->())
     func delete(todoManagedObject: NSManagedObject, completion: @escaping (Result<Bool, Error>)->())
+    func update(todoManagedObject: TodoObject, completion: @escaping (Result<Bool, Error>)->())
 }
 
 class Services {
@@ -24,6 +25,17 @@ class Services {
 }
 
 extension Services: Serviceable {
+    
+    func update(todoManagedObject: TodoObject, completion: @escaping (Result<Bool, Error>) -> ()) {
+        storage.update(object: todoManagedObject) { (result) in
+            switch result {
+            case .success(_):
+                completion(.success(true))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
     
     func fetch(completion: @escaping (Result<[NSManagedObject], Error>) -> ()) {
         storage.fetch { (result) in

@@ -28,6 +28,26 @@ struct TodoStorageManager {
 // MARK: CRUD Implementation
 
 extension TodoStorageManager: Storage {
+    func update<T>(object: T, completion: @escaping (Result<Bool, Error>) -> ()) {
+        guard let todoObject = object as Any as? TodoObject,
+        let todoData = todoObject.todo else {
+            completion(.failure(StorageError.storageDataGeneral))
+            return
+        }
+        
+        let todoNSManagedObject = todoObject.todoNSManagedObject
+        
+        todoNSManagedObject.setValue(todoData.title, forKey: "title")
+        todoNSManagedObject.setValue(todoData.createdAt, forKey: "createdAt")
+        todoNSManagedObject.setValue(todoData.description, forKey: "description_todo")
+        
+        do {
+            try mainContext.save()
+            completion(.success(true))
+        } catch let error {
+            completion(.failure(error))
+        }
+    }
     
     func fetch<T:NSManagedObject>(completion: @escaping (Result<[T]?, Error>) -> ()) {
         let fetchRequest = NSFetchRequest<T>(entityName: "TodoEntity")

@@ -75,6 +75,19 @@ extension MainVM {
             }
         }
     }
+    
+    func update(todoObject: TodoObject) {
+        services.update(todoManagedObject: todoObject) {
+            [weak self]
+            (result) in
+            switch result {
+            case .success:
+                self?.start()
+            case .failure(let error):
+                self?.viewDelegate?.showError(errorMessage: error.localizedDescription)
+            }
+        }
+    }
 }
 
 // MARK: - ViewModelType
@@ -89,8 +102,9 @@ extension MainVM: MainViewModelType {
     
     func deleteButtonTapped(at: IndexPath) { delete(index: at.row) }
     
-    func editButtonTapped(at: IndexPath) {
-        print("edit todo tapped")
+    func editButtonTapped(at: IndexPath, from controller: UIViewController) {
+        let selectedTodoObject = todoObjects![at.row]
+        editButtonTapped(on: selectedTodoObject, from: controller)
     }
     
     func didSelectRow(_ row: Int, from controller: UIViewController) {
@@ -109,5 +123,9 @@ extension MainVM: MainViewModelCoordinatorDelegate {
     
     func addButtonTapped(from controller: UIViewController) {
         coordinatorDelegate?.addButtonTapped(from: controller)
+    }
+    
+    func editButtonTapped(on todo: TodoObjectType, from controller: UIViewController) {
+        coordinatorDelegate?.editButtonTapped(on: todo, from: controller)
     }
 }
