@@ -84,7 +84,8 @@ extension MainVC {
         let editAction = UIContextualAction(style: .normal, title: "Edit") {
             [weak self]
             (_,_,_)  in
-            self?.viewModel.editButtonTapped(at: indexPath)
+            guard let sSelf = self else { return }
+            sSelf.viewModel.editButtonTapped(at: indexPath, from: sSelf)
         }
         editAction.backgroundColor = .blue
         let swipeActions = UISwipeActionsConfiguration(actions: [deleteAction, editAction])

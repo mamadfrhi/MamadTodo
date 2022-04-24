@@ -10,6 +10,7 @@ import CoreData
 protocol Storage {
     func create<T>(object: T, completion: @escaping (Result<Bool, Error>) -> ())
     func delete<T>(object: T, completion: @escaping (Result<Bool, Error>) -> ())
+    func update<T>(object: T, completion: @escaping (Result<Bool, Error>) -> ())
     func fetch<T:NSManagedObject>(completion: @escaping (Result<[T]?, Error>) -> ())
 }
 struct StorageError {

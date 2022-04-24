@@ -29,12 +29,16 @@ class MainCoordinator: Coordinator {
 
 // MARK: - ViewModel Callbacks
 extension MainCoordinator: MainViewModelCoordinatorDelegate {
-    func didSelect(todo: Todo, from controller: UIViewController) {
+    func didSelect(todo: Todo, from controller: UIViewController) { // TODO: remove controller passing and convert todo to TodoView
         goToDetailsPage(with: todo, from: controller)
     }
     
     func addButtonTapped(from controller: UIViewController) {
         goToAddPage(from: controller)
+    }
+    
+    func editButtonTapped(on todo: TodoObjectType, from controller: UIViewController) {
+        goToEdit(todo: todo, from: controller)
     }
 }
 
@@ -54,6 +58,17 @@ extension MainCoordinator {
               let mainVM = mainVC.viewModel else { return }
         let addVC = AddVC.`init`(mainVM: mainVM)
         rootNavigationController.present(addVC,
+                                         animated: true,
+                                         completion: nil)
+    }
+    
+    private func goToEdit(todo: TodoObjectType, from controller: UIViewController) {
+        // TODO: Remove from controllers as well here
+        guard let mainVC = controller as? MainVC,
+              let mainVM = mainVC.viewModel,
+              let todoObject = todo as? TodoObject else { return }
+        let editVC = EditVC.`init`(mainVM: mainVM, todoObject: todo)
+        rootNavigationController.present(editVC,
                                          animated: true,
                                          completion: nil)
     }

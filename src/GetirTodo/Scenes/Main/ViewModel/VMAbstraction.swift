@@ -25,7 +25,7 @@ protocol MainViewModelType {
     
     func deleteButtonTapped(at: IndexPath)
     
-    func editButtonTapped(at: IndexPath)
+    func editButtonTapped(at: IndexPath, from controller: UIViewController)
     
     func didSelectRow(_ row: Int, from controller: UIViewController)
 }
@@ -36,12 +36,13 @@ protocol MainViewModelType {
 protocol MainViewModelCoordinatorDelegate {
     func didSelect(todo: Todo, from controller: UIViewController)
     func addButtonTapped(from controller: UIViewController)
+    func editButtonTapped(on todo: TodoObjectType, from controller: UIViewController)
 }
 
 // MARK: - ViewModelViewDelegate
 // implement in VC
 // call on VM
-protocol MainViewModelViewDelegate: class {
+protocol MainViewModelViewDelegate {
     func refreshScreen()
     func selectedTodoAtRow() -> Int
     func showError(errorMessage: String)
