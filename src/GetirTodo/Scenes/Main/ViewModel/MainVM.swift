@@ -110,15 +110,14 @@ extension MainVM: MainViewModelType {
     func didSelectRow(_ row: Int, from controller: UIViewController) {
         // GoTo Details Page
         let todo = todoObjects![row].todo!
-        didSelect(todo: todo, from: controller)
+        didSelect(todo: todo)
     }
 }
 
 // MARK: - ViewModelCoordinator
 extension MainVM: MainViewModelCoordinatorDelegate {
-    func didSelect(todo: Todo, from controller: UIViewController) {
-        coordinatorDelegate?.didSelect(todo: todo,
-                                       from: controller)
+    func didSelect(todo: Todo) {
+        coordinatorDelegate?.didSelect(todo: todo)
     }
     
     func addButtonTapped(from controller: UIViewController) {

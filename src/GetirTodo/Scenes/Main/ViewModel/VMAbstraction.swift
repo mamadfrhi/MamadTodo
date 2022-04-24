@@ -34,7 +34,7 @@ protocol MainViewModelType {
 // implement in MainCoordinator
 // call in VM
 protocol MainViewModelCoordinatorDelegate {
-    func didSelect(todo: Todo, from controller: UIViewController)
+    func didSelect(todo: Todo)
     func addButtonTapped(from controller: UIViewController)
     func editButtonTapped(on todo: TodoObjectType, from controller: UIViewController)
 }
