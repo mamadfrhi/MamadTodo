@@ -52,8 +52,6 @@ extension MainVM {
             (result) in
             switch result {
             case .success:
-                // TODO: add a good message view for the users
-                print("successfully saved")
                 self?.start()
             case .failure(let error):
                 self?.viewDelegate?.showError(errorMessage: error.localizedDescription)
