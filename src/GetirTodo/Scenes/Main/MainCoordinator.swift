@@ -10,7 +10,6 @@ import UIKit
 class MainCoordinator: Coordinator {
     
     // MARK: Properties
-    
     private let rootNavigationController: UINavigationController
     
     // MARK: Coordinator
@@ -29,8 +28,8 @@ class MainCoordinator: Coordinator {
 
 // MARK: - ViewModel Callbacks
 extension MainCoordinator: MainViewModelCoordinatorDelegate {
-    func didSelect(todo: Todo) {
-        goToDetailsPage(with: todo)
+    func didSelect(todoViewData: TodoViewData) {
+        goToDetailsPage(with: todoViewData)
     }
     
     func addButtonTapped(from controller: UIViewController) {
@@ -44,8 +43,7 @@ extension MainCoordinator: MainViewModelCoordinatorDelegate {
 
 // MARK: - Navigation
 extension MainCoordinator {
-    private func goToDetailsPage(with todo: Todo) {
-        let todoViewData = TodoViewData(todo: todo)
+    private func goToDetailsPage(with todoViewData: TodoViewData) {
         let detailVC = DetailsVC.`init`(todoViewData: todoViewData)
         rootNavigationController.present(detailVC,
                                          animated: true,
