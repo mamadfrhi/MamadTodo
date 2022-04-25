@@ -13,9 +13,7 @@ class MainCoordinator: Coordinator {
     private let rootNavigationController: UINavigationController
     
     // MARK: Coordinator
-    init(rootNavigationController: UINavigationController) {
-        self.rootNavigationController = rootNavigationController
-    }
+    init(rootNavigationController: UINavigationController) { self.rootNavigationController = rootNavigationController }
     
     override func start() {
         super.addChildCoordinator(self)
@@ -53,6 +51,7 @@ extension MainCoordinator {
     private func goToAddPage(from controller: UIViewController) {
         guard let mainVC = controller as? MainVC,
               let mainVM = mainVC.viewModel else { return }
+        
         let addVC = AddVC.`init`(mainVM: mainVM)
         rootNavigationController.present(addVC,
                                          animated: true,
@@ -62,6 +61,7 @@ extension MainCoordinator {
     private func goToEdit(todo: TodoObjectType, from controller: UIViewController) {
         guard let mainVC = controller as? MainVC,
               let mainVM = mainVC.viewModel else { return }
+        
         let editVC = EditVC.`init`(mainVM: mainVM, todoObject: todo)
         rootNavigationController.present(editVC,
                                          animated: true,

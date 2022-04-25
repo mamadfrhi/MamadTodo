@@ -14,6 +14,7 @@ protocol TodoObjectType {
 }
 
 struct TodoObject: TodoObjectType {
+
     private var _todoNSManagedObject: NSManagedObject!
     var todoNSManagedObject: NSManagedObject {
         set {
@@ -21,15 +22,6 @@ struct TodoObject: TodoObjectType {
             fillTodoModel(from: newValue)
         }
         get { return _todoNSManagedObject }
-    }
-    
-    var todo: Todo?
-    
-    var todoViewData: TodoViewData? {
-        get {
-            return TodoViewData(todo: todo!)
-            // take care of force unwrapp
-        }
     }
     
     private mutating func fillTodoModel(from nsManagedObj: NSManagedObject){
@@ -42,7 +34,7 @@ struct TodoObject: TodoObjectType {
             let title = "\(title)"
             let description = "\(description)"
             // to date
-            let cratedAt = createdAtObj as! Date // take care of force unwrap
+            let cratedAt = createdAtObj as! Date
             
             todo = Todo(id: id,
                         title: title,
@@ -51,8 +43,9 @@ struct TodoObject: TodoObjectType {
         }
     }
     
+    var todo: Todo?
+    var todoViewData: TodoViewData? { get { return TodoViewData(todo: todo!) } }
     
-    init(nsManagedObject: NSManagedObject) {
-        self.todoNSManagedObject = nsManagedObject
-    }
+    
+    init(nsManagedObject: NSManagedObject) { self.todoNSManagedObject = nsManagedObject }
 }
