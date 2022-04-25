@@ -12,11 +12,7 @@ final class AppCoordinator: Coordinator {
     // MARK: Properties
     let window: UIWindow?
     
-    private var rootViewController: UINavigationController = {
-        return UINavigationController(rootViewController: UIViewController())
-    }()
-    
-    // services dependecies
+    private var rootNavigationController = UINavigationController()
     
     // MARK: Coordinator
     init(window: UIWindow?) { self.window = window }
@@ -24,11 +20,11 @@ final class AppCoordinator: Coordinator {
     override func start() {
         guard let window = window else { return }
         
-        window.rootViewController = rootViewController
+        window.rootViewController = rootNavigationController
         window.makeKeyAndVisible()
         
         // show Main.storyboard as the start point of the app
-        let mainCoordinator = MainCoordinator(rootNavigationViewController: rootViewController)
+        let mainCoordinator = MainCoordinator(rootNavigationController: rootNavigationController)
         mainCoordinator.start()
     }
 }
