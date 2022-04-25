@@ -14,8 +14,8 @@ class MainCoordinator: Coordinator {
     private let rootNavigationController: UINavigationController
     
     // MARK: Coordinator
-    init(rootNavigationViewController: UINavigationController) {
-        self.rootNavigationController = rootNavigationViewController
+    init(rootNavigationController: UINavigationController) {
+        self.rootNavigationController = rootNavigationController
     }
     
     override func start() {
