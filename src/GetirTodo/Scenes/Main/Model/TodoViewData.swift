@@ -16,7 +16,7 @@ protocol TodoViewDataType {
 }
 
 struct TodoViewData: TodoViewDataType {
-    var id: String { return todo.id! } // take care of force unwrap
+    var id: String { return todo.id! }
     
     var title: String { return todo.title }
     
@@ -31,7 +31,5 @@ struct TodoViewData: TodoViewDataType {
     
     
     let todo: Todo
-    init(todo: Todo) {
-        self.todo = todo
-    }
+    init(todo: Todo) { self.todo = todo }
 }
