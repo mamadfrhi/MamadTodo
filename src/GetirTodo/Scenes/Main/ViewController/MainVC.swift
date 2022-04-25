@@ -45,7 +45,7 @@ class MainVC: UIViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add,
                                                             target: self,
                                                             action: #selector(addButtonTapped))
-        self.title = "To Do List"
+        title = "To Do List"
     }
     
     @objc private func addButtonTapped() {
@@ -76,20 +76,19 @@ extension MainVC {
     func tableView(_ tableView: UITableView,
                    trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete") {
-            [weak self]
-            (_,_,_) in
+            [weak self] _,_,_ in
             self?.viewModel.deleteButtonTapped(at: indexPath)
         }
         
         let editAction = UIContextualAction(style: .normal, title: "Edit") {
-            [weak self]
-            (_,_,_)  in
+            [weak self] _,_,_ in
+            
             guard let sSelf = self else { return }
             sSelf.viewModel.editButtonTapped(at: indexPath, from: sSelf)
         }
-        editAction.backgroundColor = .blue
-        let swipeActions = UISwipeActionsConfiguration(actions: [deleteAction, editAction])
+        editAction.backgroundColor = .systemBlue
         
+        let swipeActions = UISwipeActionsConfiguration(actions: [deleteAction, editAction])
         return swipeActions
     }
     
@@ -107,12 +106,9 @@ extension MainVC: MainViewModelViewDelegate {
         }
     }
     
-    func selectedTodoAtRow() -> Int {
-        tableView.indexPathForSelectedRow?.row ?? 0
-    }
+    func selectedTodoAtRow() -> Int { tableView.indexPathForSelectedRow?.row ?? 0 }
     
     func showError(errorMessage: String) {
-        // Remember to show it on main thread
         DispatchQueue.main.async {
             AlertPresenter.shared.showMessage(title: "Error",
                                               message: errorMessage,
