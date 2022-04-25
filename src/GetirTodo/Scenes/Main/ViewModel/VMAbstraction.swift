@@ -27,14 +27,14 @@ protocol MainViewModelType {
     
     func editButtonTapped(at: IndexPath, from controller: UIViewController)
     
-    func didSelectRow(_ row: Int, from controller: UIViewController)
+    func didSelectRow(_ row: Int)
 }
 
 // MARK: - ViewModelCoordinator(delegate)
 // implement in MainCoordinator
 // call in VM
 protocol MainViewModelCoordinatorDelegate {
-    func didSelect(todo: Todo)
+    func didSelect(todoViewData: TodoViewData)
     func addButtonTapped(from controller: UIViewController)
     func editButtonTapped(on todo: TodoObjectType, from controller: UIViewController)
 }

@@ -95,7 +95,7 @@ extension MainVC {
     
     // Select
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        viewModel.didSelectRow(indexPath.row, from: self)
+        viewModel.didSelectRow(indexPath.row)
     }
 }
 

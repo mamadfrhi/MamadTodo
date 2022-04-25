@@ -91,6 +91,7 @@ extension MainVM {
 // MARK: - ViewModelType
 extension MainVM: MainViewModelType {
     
+    // Data Source
     func numberOfRows() -> Int { return todoObjects!.count }
     
     func cellDataFor(row: Int) -> TodoViewData {
@@ -98,6 +99,7 @@ extension MainVM: MainViewModelType {
         return viewData
     }
     
+    // Events
     func deleteButtonTapped(at: IndexPath) { delete(index: at.row) }
     
     func editButtonTapped(at: IndexPath, from controller: UIViewController) {
@@ -105,17 +107,17 @@ extension MainVM: MainViewModelType {
         editButtonTapped(on: selectedTodoObject, from: controller)
     }
     
-    func didSelectRow(_ row: Int, from controller: UIViewController) {
+    func didSelectRow(_ row: Int) {
         // GoTo Details Page
-        let todo = todoObjects![row].todo!
-        didSelect(todo: todo)
+        let todoViewData = TodoViewData(todo: todoObjects![row].todo!)
+        didSelect(todoViewData: todoViewData)
     }
 }
 
 // MARK: - ViewModelCoordinator
 extension MainVM: MainViewModelCoordinatorDelegate {
-    func didSelect(todo: Todo) {
-        coordinatorDelegate?.didSelect(todo: todo)
+    func didSelect(todoViewData: TodoViewData) {
+        coordinatorDelegate?.didSelect(todoViewData: todoViewData)
     }
     
     func addButtonTapped(from controller: UIViewController) {
