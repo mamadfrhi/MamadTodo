@@ -57,7 +57,7 @@ Make 2 different stacks which makes storage and Core Data layer of the applicati
 <img src="https://www.uplooder.net/img/image/28/728fb3e26193ed163305f680e3b72fdb/medium.png" alt="J" width="300"/>
 
 
-**Difference?**
+**How to reach it?**
 
 <img src="https://www.uplooder.net/img/image/99/80402952ef313e980b9ac940a569e937/Untitled-3.jpeg" alt="J" width="600"/>
 
