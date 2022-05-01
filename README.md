@@ -38,9 +38,9 @@ Again, I highly respect the SOLID principles. On the diagram image on part servi
 #### Models?
 
 1. Todo
-    * Simply represent a todo (a pure model)
+    * Simply represent a todo model which fetchs from the HDD (a pure model)
 2. TodoViewData
-    * It's a wrapper around each Todo which do some preprocess on data before use them on ViewControllers.
+    * It's a wrapper(decorator) around each Todo which do some preprocess on data before use them on ViewControllers.
 3. TodoObject
    * It contains both models above + TodoNSManagedObject of each Todo. It uses as a container which knows 3 aspects of each todo. How its NSObject, ViewData and pure model represented.
 
