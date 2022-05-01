@@ -76,7 +76,7 @@ https://user-images.githubusercontent.com/28094207/164786519-8985028e-aa02-490f-
 I invite you to see **Unit Tests** of the Core Data and application itself as well as **UI Tests**. I used GWT method to make the tests cleaner.
 
 ### Diagram
-You can find the diagram file in the repo and open it in [here](draw.io) 
+You can find the diagram file in the repo and open it in [here](https://app.diagrams.net/) 
 
 
 #
