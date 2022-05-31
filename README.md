@@ -1,5 +1,5 @@
 
-![Swift](https://img.shields.io/badge/Swift-5.6.1-orange) ![CoreData](https://img.shields.io/badge/CoreData-3.2-blue) ![build](https://img.shields.io/badge/build-passing-brightgreen) ![Architecture](https://img.shields.io/badge/Architecture-MVVM-orange) ![UI/UnitTests](https://img.shields.io/badge/UI%2FUNIT-Tests-brightgreen)
+![Swift](https://img.shields.io/badge/Swift-5.6.1-orange) ![Architecture](https://img.shields.io/badge/Architecture-MVVM-orange) ![CoreData](https://img.shields.io/badge/CoreData-3.2-blue) ![UI/UnitTests](https://img.shields.io/badge/UI%2FUNIT-Tests-brightgreen) ![build](https://img.shields.io/badge/build-passing-brightgreen)
 ## What is it? 🙋🏻
 
 It's a Todo iOS Application with **offline support** by the use of Core Data which has been developed as a code challenge. It's written **purely in Swift** without using 3rd party frameworks. The project included **_Unit Tests_ for the _Core Data_ Layer** and **UI Tests** exist as well.
