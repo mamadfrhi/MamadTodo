@@ -2,7 +2,7 @@
 ![Swift](https://img.shields.io/badge/Swift-5.6.1-orange) ![CoreData](https://img.shields.io/badge/CoreData-3.2-blue) ![build](https://img.shields.io/badge/build-passing-brightgreen) ![Architecture](https://img.shields.io/badge/Architecture-MVVM-orange) ![UI/UnitTests](https://img.shields.io/badge/UI%2FUNIT-Tests-brightgreen)
 ## What is it? 🙋🏻
 
-It's a Todo iOS Application with **offline support** by the use of Core Data which has been developed as a code challenge. It's written **purely in Swift** without using 3rd party frameworks. The project included **_Unit Tests_ for the _Core Data_ Layer**. **UI Tests** exist as well.
+It's a Todo iOS Application with **offline support** by the use of Core Data which has been developed as a code challenge. It's written **purely in Swift** without using 3rd party frameworks. The project included **_Unit Tests_ for the _Core Data_ Layer** and **UI Tests** exist as well.
 
 
 ## What do you want to show by this project❓
@@ -69,7 +69,11 @@ The right one uses by the test cases. It's created on memory that is why tests r
 
 ## Video 🎥
 
-https://user-images.githubusercontent.com/28094207/164786519-8985028e-aa02-490f-92c4-875f9e293802.mov
+
+
+
+https://user-images.githubusercontent.com/28094207/171158800-46c7ab9b-cd53-427b-9d28-ed9a742bb5fa.mov
+
 
 
 
