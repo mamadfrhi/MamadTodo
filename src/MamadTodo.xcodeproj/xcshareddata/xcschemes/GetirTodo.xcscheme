@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "F72669342590B8DD00AB3034"
-               BuildableName = "GetirTodo.app"
+               BuildableName = "MamadTodo.app"
                BlueprintName = "MamadTodo"
                ReferencedContainer = "container:MamadTodo.xcodeproj">
             </BuildableReference>
@@ -34,7 +34,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "F726694A2590B8DF00AB3034"
-               BuildableName = "GetirTodoTests.xctest"
+               BuildableName = "MamadTodoTests.xctest"
                BlueprintName = "MamadTodoTests"
                ReferencedContainer = "container:MamadTodo.xcodeproj">
             </BuildableReference>
@@ -44,7 +44,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "F72669552590B8DF00AB3034"
-               BuildableName = "GetirTodoUITests.xctest"
+               BuildableName = "MamadTodoUITests.xctest"
                BlueprintName = "MamadTodoUITests"
                ReferencedContainer = "container:MamadTodo.xcodeproj">
             </BuildableReference>
@@ -66,7 +66,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "F72669342590B8DD00AB3034"
-            BuildableName = "GetirTodo.app"
+            BuildableName = "MamadTodo.app"
             BlueprintName = "MamadTodo"
             ReferencedContainer = "container:MamadTodo.xcodeproj">
          </BuildableReference>
@@ -83,7 +83,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "F72669342590B8DD00AB3034"
-            BuildableName = "GetirTodo.app"
+            BuildableName = "MamadTodo.app"
             BlueprintName = "MamadTodo"
             ReferencedContainer = "container:MamadTodo.xcodeproj">
          </BuildableReference>

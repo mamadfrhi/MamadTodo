@@ -7,6 +7,11 @@
 
 import XCTest
 
+/**
+ Please press command + k on the simulator before running
+ the tests below.
+ **/
+
 class MamadTodoUITests: XCTestCase {
     
     override class func setUp() {
